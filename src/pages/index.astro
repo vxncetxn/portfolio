@@ -1,12 +1,5 @@
 ---
-// Component Imports
 import { Scene } from "../components/Scene";
-const someProps = {
-  count: 0,
-};
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
@@ -14,6 +7,23 @@ const someProps = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script>
+      (function () {
+        function setTheme(theme: string) {
+          document.documentElement.setAttribute("theme", theme);
+        }
+
+        const storedTheme = window.localStorage.getItem("theme");
+
+        if (storedTheme) {
+          setTheme(storedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: dark").matches) {
+          setTheme("dark");
+        } else {
+          setTheme("light");
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <style>
       @font-face {
@@ -28,6 +38,23 @@ const someProps = {
           url("/PPCirka-Regular.woff") format("woff");
       }
 
+      :root {
+        --color-neutral-01: #ffffff;
+        --color-neutral-02: #1c1c1c;
+      }
+
+      [theme="dark"] {
+        --color-neutral-01: #1c1c1c;
+        --color-neutral-02: #ffffff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-neutral-01: #1c1c1c;
+          --color-neutral-02: #ffffff;
+        }
+      }
+
       html,
       body,
       main {
@@ -36,6 +63,7 @@ const someProps = {
         margin: 0;
         padding: 0;
         overflow: hidden;
+        background-color: var(--color-neutral-01);
       }
 
       .text {
@@ -46,7 +74,7 @@ const someProps = {
   </head>
   <body>
     <main>
-      <Scene client:only="react" />
+      <Scene client:idle />
     </main>
   </body>
 </html>

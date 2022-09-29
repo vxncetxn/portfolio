@@ -1,39 +1,55 @@
-import * as THREE from "three";
+import { Vector3 } from "three";
 import { Suspense, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { softShadows, Text3D, Html } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import {
+  softShadows,
+  Text3D,
+  Html,
+  MeshReflectorMaterial,
+} from "@react-three/drei";
 
 softShadows();
 
-function Intro({ start, set }) {
-  const [vec] = useState(() => new THREE.Vector3());
-  useEffect(() => setTimeout(() => set(true), 500), []);
+function Intro() {
+  const { invalidate } = useThree();
+  const [vec] = useState(() => new Vector3());
   return useFrame((state) => {
-    if (start) {
-      state.camera.position.lerp(
-        vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14),
-        0.05
-      );
-      state.camera.lookAt(0, 0, 0);
-    }
+    // invalidate();
+    state.camera.position.lerp(
+      vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14),
+      0.05
+    );
+    state.camera.lookAt(0, 0, 0);
   });
 }
 
 export function Scene() {
-  const [clicked, setClicked] = useState(true);
-  const [ready, setReady] = useState(true);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("theme", theme);
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <Suspense fallback={null}>
       <Canvas
-        shadows
+        shadows={theme === "light" ? true : false}
         camera={{
           // position: [-5, 2, 10],
           fov: 60,
         }}
         dpr={[1, 2]}
+        // frameloop="demand"
       >
-        <fog attach="fog" args={["white", 0, 40]} />
+        {theme === "light" ? (
+          <fog attach="fog" args={["white", 0, 40]} />
+        ) : (
+          <>
+            <color attach="background" args={["#191920"]} />
+            <fog attach="fog" args={["#191920", 0, 40]} />
+          </>
+        )}
         <ambientLight intensity={0.4} />
         <directionalLight
           castShadow
@@ -68,8 +84,22 @@ export function Scene() {
             receiveShadow
           >
             <planeBufferGeometry attach="geometry" args={[100, 100]} />
-            {/* <meshBasicMaterial /> */}
-            <shadowMaterial attach="material" color="red" opacity={0.4} />
+            {theme === "light" ? (
+              <shadowMaterial attach="material" color="red" opacity={0.4} />
+            ) : (
+              <MeshReflectorMaterial
+                blur={[300, 100]}
+                resolution={2048}
+                mixBlur={1}
+                mixStrength={40}
+                roughness={1}
+                depthScale={1.2}
+                minDepthThreshold={0.4}
+                maxDepthThreshold={1.4}
+                color="#101010"
+                metalness={0.5}
+              />
+            )}
           </mesh>
         </group>
         <Html
@@ -79,10 +109,25 @@ export function Scene() {
             lineHeight: 1.6,
             width: 480,
             transform: "translate(-120%, -50%)",
+            color: "var(--color-neutral-02)",
           }}
         >
+          <button
+            style={{ display: "block" }}
+            onClick={() => {
+              if (theme === "light") {
+                setTheme("dark");
+              } else {
+                setTheme("light");
+              }
+            }}
+          >
+            Toggle
+          </button>
           Hello, I am{" "}
-          <span style={{ fontFamily: "Cirka", fontSize: 27 }}>VANCE TAN</span>{" "}
+          <span style={{ fontFamily: "Cirka", fontSize: 27 }}>
+            VANCE TAN // VXN
+          </span>{" "}
           from Singapore. <br />
           <br />I am a{" "}
           <span style={{ fontFamily: "Cirka", fontSize: 27 }}>
@@ -98,7 +143,7 @@ export function Scene() {
               fontFamily: "Cirka",
               fontSize: 27,
               textDecoration: "underline",
-              color: "black",
+              color: "var(--color-neutral-02)",
             }}
           >
             KRUVT
@@ -111,14 +156,14 @@ export function Scene() {
               fontFamily: "Cirka",
               fontSize: 27,
               textDecoration: "underline",
-              color: "black",
+              color: "var(--color-neutral-02)",
             }}
           >
             AMATEUR PHOTOGRAPHER
           </a>
           .
         </Html>
-        <Intro start={ready && clicked} set={setReady} />
+        <Intro />
       </Canvas>
     </Suspense>
   );
