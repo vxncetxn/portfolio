@@ -1,8 +1,8 @@
 ---
 // Component Imports
-import Counter from '../components/Counter';
+import { Scene } from "../components/Scene";
 const someProps = {
-	count: 0,
+  count: 0,
 };
 
 // Full Astro Component Syntax:
@@ -10,27 +10,43 @@ const someProps = {
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<style>
-			html,
-			body {
-				font-family: system-ui;
-				margin: 0;
-			}
-			body {
-				padding: 2rem;
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<Counter {...someProps} client:visible>
-				<h1>Hello, React!</h1>
-			</Counter>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      @font-face {
+        font-family: "Neue Montreal";
+        src: url("/PPNeueMontreal-Book.woff2") format("woff2"),
+          url("/PPNeueMontreal-Book.woff") format("woff");
+      }
+
+      @font-face {
+        font-family: "Cirka";
+        src: url("/PPCirka-Regular.woff2") format("woff2"),
+          url("/PPCirka-Regular.woff") format("woff");
+      }
+
+      html,
+      body,
+      main {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .text {
+        color: white;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <Scene client:only="react" />
+    </main>
+  </body>
 </html>
