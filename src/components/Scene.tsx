@@ -1,7 +1,8 @@
 import { Vector3 } from "three";
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { softShadows, Text3D, MeshReflectorMaterial } from "@react-three/drei";
+import { theme } from "../globals/theme";
 
 softShadows();
 
@@ -17,29 +18,25 @@ function Intro() {
 }
 
 export function Scene() {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("theme", theme);
-    window.localStorage.setItem("theme", theme);
-  }, [theme]);
-
   return (
     <Suspense fallback={null}>
       <Canvas
-        shadows={theme === "light" ? true : false}
+        shadows={theme.value === "light" ? true : false}
         camera={{
           fov: 60,
         }}
-        dpr={[1, 2]}
+        dpr={1}
         // frameloop="demand"
       >
-        {theme === "light" ? (
-          <fog attach="fog" args={["white", 0, 40]} />
+        {theme.value === "light" ? (
+          <>
+            <color attach="background" args={["transparent"]} />
+            <fog attach="fog" args={["white", 0, 40]} />
+          </>
         ) : (
           <>
-            <color attach="background" args={["#191920"]} />
-            <fog attach="fog" args={["#191920", 0, 40]} />
+            <color attach="background" args={["#1c1c1c"]} />
+            <fog attach="fog" args={["#1c1c1c", 0, 40]} />
           </>
         )}
         <ambientLight intensity={0.4} />
@@ -67,7 +64,7 @@ export function Scene() {
           rotation={[0, 0.1, 0]}
         >
           vxn
-          <meshStandardMaterial />
+          <meshLambertMaterial />
         </Text3D>
         <group position={[0, -5, 0]}>
           <mesh
@@ -75,8 +72,8 @@ export function Scene() {
             position={[0, 0, 0]}
             receiveShadow
           >
-            <planeBufferGeometry attach="geometry" args={[100, 100]} />
-            {theme === "light" ? (
+            <planeBufferGeometry attach="geometry" args={[50, 50]} />
+            {theme.value === "light" ? (
               <shadowMaterial attach="material" color="red" opacity={0.4} />
             ) : (
               <MeshReflectorMaterial

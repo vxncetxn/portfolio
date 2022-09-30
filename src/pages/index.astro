@@ -1,6 +1,7 @@
 ---
 import "../base.css";
 import { Scene } from "../components/Scene";
+import { TempThemeSelect } from "../components/TempThemeSelect";
 import Content from "../components/Content.astro";
 ---
 
@@ -10,20 +11,39 @@ import Content from "../components/Content.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <script>
+      import { theme } from "../globals/theme";
+      import { effect } from "@preact/signals-react";
+
       (function () {
-        function setTheme(theme: string) {
-          document.documentElement.setAttribute("theme", theme);
+        function setTheme(newTheme: string) {
+          document.documentElement.setAttribute("theme", newTheme);
+          theme.value = newTheme;
         }
 
         const storedTheme = window.localStorage.getItem("theme");
+        const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
 
         if (storedTheme) {
           setTheme(storedTheme);
-        } else if (window.matchMedia("(prefers-color-scheme: dark").matches) {
+        } else if (darkModePref.matches) {
           setTheme("dark");
         } else {
           setTheme("light");
         }
+
+        darkModePref.addEventListener("change", (e) => {
+          if (!storedTheme) {
+            if (e.matches) {
+              setTheme("dark");
+            } else {
+              setTheme("light");
+            }
+          }
+        });
+
+        effect(() => {
+          document.documentElement.setAttribute("theme", theme.value);
+        });
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -31,6 +51,7 @@ import Content from "../components/Content.astro";
   <body class="bg-neutral-01">
     <main class="w-screen h-screen">
       <Scene client:idle />
+      <TempThemeSelect client:idle />
       <Content />
     </main>
   </body>
