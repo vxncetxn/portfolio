@@ -1,0 +1,123 @@
+---
+import Header from "./Header.astro";
+import Text from "./Text.astro";
+import Anchor from "./Anchor.astro";
+import Span from "./Span.astro";
+---
+
+<div
+  class="flex flex-col justify-between absolute left-0 top-0 h-screen py-64 pl-120 max-w-[640px]"
+>
+  <div class="space-y-20">
+    <Header>Vance Tan // VXN</Header>
+    <Text>Portfolio v2 — 2022</Text>
+  </div>
+  <div class="flex flex-col space-y-40">
+    <Text>
+      I am a <Span>SOFTWARE ENGINEER</Span> and <Span>DESIGNER</Span> passionate
+      about building beautiful experiences on the web. I sometimes also do some freelance
+      work on the side, such as for <Anchor href="">WTH 2021</Anchor>
+      and <Anchor href="">SUTD MC</Anchor>. Outside of work, I am a hobbyist
+      <Anchor href="">PHOTOGRAPHER</Anchor> and an absolute fan of good food.
+    </Text>
+    <div class="flex flex-col space-y-20">
+      <div class="flex space-x-12">
+        <div class="flex items-center space-x-8">
+          <svg
+            width="16"
+            height="12"
+            viewBox="0 0 16 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0_1045_56"
+              style="mask-type:alpha"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="16"
+              height="12"
+            >
+              <rect width="16" height="12" fill="white"></rect>
+            </mask>
+            <g mask="url(#mask0_1045_56)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 0V12H16V0H0Z"
+                fill="#F7FCFF"></path>
+              <mask
+                id="mask1_1045_56"
+                style="mask-type:alpha"
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="16"
+                height="12"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 0V12H16V0H0Z"
+                  fill="white"></path>
+              </mask>
+              <g mask="url(#mask1_1045_56)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 0V6H16V0H0Z"
+                  fill="#E31D1C"></path>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.43426 5.29481C4.43426 5.29481 3.02142 4.72656 3.02142 3.18703C3.02142 1.64749 4.43426 1.0976 4.43426 1.0976C3.74759 0.923767 1.92554 1.07925 1.92554 3.18703C1.92554 5.29481 3.72006 5.69231 4.43426 5.29481ZM4.79625 5.04033L5.20156 4.79565L5.6158 5.04033L5.51442 4.56285L5.85117 4.18618H5.39492L5.20156 3.74033L5.0082 4.18618L4.55117 4.20551L4.8887 4.56285L4.79625 5.04033ZM6.67471 4.76832L6.2694 5.01301L6.36185 4.53553L6.02432 4.17818L6.48135 4.15886L6.67471 3.71301L6.86807 4.15886H7.32432L6.98757 4.53553L7.08895 5.01301L6.67471 4.76832ZM5.64364 2.88496L6.04895 2.64027L6.46319 2.88496L6.36181 2.40747L6.69856 2.03081H6.24231L6.04895 1.58496L5.85559 2.03081L5.39856 2.05013L5.73609 2.40747L5.64364 2.88496ZM4.68495 3.61135L4.27964 3.85604L4.37209 3.37856L4.03456 3.02121L4.49159 3.00189L4.68495 2.55604L4.87831 3.00189H5.33456L4.99782 3.37856L5.0992 3.85604L4.68495 3.61135ZM6.95885 3.83411L7.36416 3.58942L7.7784 3.83411L7.67702 3.35663L8.01377 2.97996H7.55752L7.36416 2.53411L7.1708 2.97996L6.71377 2.99928L7.0513 3.35663L6.95885 3.83411Z"
+                  fill="#F1F9FF"></path>
+              </g>
+            </g>
+          </svg>
+          <Text size="small">Based in Singapore</Text>
+        </div>
+        <Span font="primary" size="small">•</Span>
+        <Text size="small">05:59:24 AM (GMT+8)</Text>
+      </div>
+      <div class="flex items-center space-x-8">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.99995 0C3.58179 0 0 3.5817 0 7.99986C0 12.4182 3.58179 15.9996 7.99995 15.9996C12.4186 15.9996 16 12.4182 16 7.99986C16 3.58199 12.4186 0.000382117 7.99986 0.000382117L7.99995 0V0ZM11.6687 11.5381C11.6345 11.594 11.5897 11.6427 11.5367 11.6813C11.4838 11.7199 11.4237 11.7476 11.36 11.763C11.2963 11.7783 11.2302 11.781 11.1655 11.7707C11.1007 11.7605 11.0386 11.7376 10.9828 11.7034C9.10447 10.556 6.73991 10.2962 3.95522 10.9324C3.82628 10.9618 3.69097 10.9387 3.57903 10.8683C3.46709 10.7979 3.38768 10.6859 3.35825 10.557C3.3436 10.4932 3.34168 10.4271 3.3526 10.3625C3.36353 10.2979 3.38709 10.2361 3.42192 10.1807C3.45676 10.1252 3.5022 10.0772 3.55563 10.0393C3.60906 10.0014 3.66944 9.97445 3.7333 9.95994C6.78071 9.26343 9.39469 9.56349 11.5034 10.8522C11.7384 10.9964 11.8129 11.3031 11.6687 11.5381V11.5381ZM12.6479 9.35953C12.4673 9.65329 12.0833 9.74595 11.79 9.5654C9.63963 8.24336 6.36171 7.86057 3.81823 8.63265C3.48837 8.73228 3.13997 8.54638 3.03985 8.21709C2.99208 8.05878 3.00904 7.88798 3.08701 7.74216C3.16499 7.59633 3.29761 7.48738 3.45579 7.43919C6.36114 6.55764 9.97302 6.98466 12.4425 8.50215C12.7357 8.6827 12.8284 9.06673 12.6479 9.35963V9.35953ZM12.7319 7.09127C10.1536 5.55983 5.89963 5.41902 3.43793 6.16616C3.04262 6.28605 2.62459 6.06289 2.50479 5.66759C2.44719 5.47767 2.46737 5.27265 2.5609 5.09761C2.65443 4.92257 2.81365 4.79184 3.00355 4.73417C5.82942 3.87631 10.5271 4.04206 13.4956 5.8043C13.5802 5.85434 13.6541 5.92059 13.7131 5.99924C13.772 6.07789 13.8149 6.16741 13.8392 6.26265C13.8635 6.35789 13.8688 6.457 13.8547 6.55429C13.8407 6.65158 13.8076 6.74514 13.7573 6.82962C13.5472 7.18518 13.0867 7.30239 12.7323 7.09127H12.7319Z"
+            fill="#1ED760"></path>
+        </svg>
+        <Text size="small"
+          >Now Playing — <Anchor href="" font="primary" size="small"
+            >Boomerang by Brooks & GRX</Anchor
+          >
+        </Text>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center space-x-12">
+    <Anchor href="https://github.com/vxncetxn" font="primary" size="small"
+      >Github</Anchor
+    >
+    <Span font="primary" size="small">•</Span>
+    <Anchor href="https://twitter.com/vxncetxn" font="primary" size="small"
+      >Twitter</Anchor
+    >
+    <Span font="primary" size="small">•</Span>
+    <Anchor
+      href="https://www.linkedin.com/in/vance-tan-xr/"
+      font="primary"
+      size="small">LinkedIn</Anchor
+    >
+    <Span font="primary" size="small">•</Span>
+    <Anchor href="mailto:vxncetxn@gmail.com" font="primary" size="small"
+      >Email</Anchor
+    >
+  </div>
+</div>

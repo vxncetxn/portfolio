@@ -1,5 +1,7 @@
 ---
+import "../base.css";
 import { Scene } from "../components/Scene";
+import Content from "../components/Content.astro";
 ---
 
 <html lang="en">
@@ -25,56 +27,11 @@ import { Scene } from "../components/Scene";
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <style>
-      @font-face {
-        font-family: "Neue Montreal";
-        src: url("/PPNeueMontreal-Book.woff2") format("woff2"),
-          url("/PPNeueMontreal-Book.woff") format("woff");
-      }
-
-      @font-face {
-        font-family: "Cirka";
-        src: url("/PPCirka-Regular.woff2") format("woff2"),
-          url("/PPCirka-Regular.woff") format("woff");
-      }
-
-      :root {
-        --color-neutral-01: #ffffff;
-        --color-neutral-02: #1c1c1c;
-      }
-
-      [theme="dark"] {
-        --color-neutral-01: #1c1c1c;
-        --color-neutral-02: #ffffff;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --color-neutral-01: #1c1c1c;
-          --color-neutral-02: #ffffff;
-        }
-      }
-
-      html,
-      body,
-      main {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: var(--color-neutral-01);
-      }
-
-      .text {
-        color: white;
-        font-size: 24px;
-      }
-    </style>
   </head>
-  <body>
-    <main>
+  <body class="bg-neutral-01">
+    <main class="w-screen h-screen">
       <Scene client:idle />
+      <Content />
     </main>
   </body>
 </html>

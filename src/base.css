@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/PPNeueMontreal-Book.woff2") format("woff2"),
+    url("/PPNeueMontreal-Book.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Cirka";
+  src: url("/PPCirka-Regular.woff2") format("woff2"),
+    url("/PPCirka-Regular.woff") format("woff");
+}
+
+:root {
+  --color-neutral-01: #ffffff;
+  --color-neutral-02: #1c1c1c;
+}
+
+[theme="dark"] {
+  --color-neutral-01: #1c1c1c;
+  --color-neutral-02: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-neutral-01: #1c1c1c;
+    --color-neutral-02: #ffffff;
+  }
+}

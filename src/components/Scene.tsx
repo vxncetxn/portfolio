@@ -1,20 +1,13 @@
 import { Vector3 } from "three";
 import { Suspense, useState, useEffect } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import {
-  softShadows,
-  Text3D,
-  Html,
-  MeshReflectorMaterial,
-} from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { softShadows, Text3D, MeshReflectorMaterial } from "@react-three/drei";
 
 softShadows();
 
 function Intro() {
-  const { invalidate } = useThree();
   const [vec] = useState(() => new Vector3());
   return useFrame((state) => {
-    // invalidate();
     state.camera.position.lerp(
       vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14),
       0.05
@@ -36,7 +29,6 @@ export function Scene() {
       <Canvas
         shadows={theme === "light" ? true : false}
         camera={{
-          // position: [-5, 2, 10],
           fov: 60,
         }}
         dpr={[1, 2]}
@@ -66,7 +58,7 @@ export function Scene() {
         <pointLight position={[-10, 0, -20]} color="red" intensity={2.5} />
         <pointLight position={[0, -10, 0]} intensity={1.5} />
         <Text3D
-          font="/PPMonumentExtended_Bold.json"
+          font="/PPMonumentExtended_Bold_reduced.json"
           receiveShadow
           castShadow
           size={4}
@@ -98,71 +90,11 @@ export function Scene() {
                 maxDepthThreshold={1.4}
                 color="#101010"
                 metalness={0.5}
+                mirror={0}
               />
             )}
           </mesh>
         </group>
-        <Html
-          style={{
-            fontFamily: "Neue Montreal",
-            fontSize: 24,
-            lineHeight: 1.6,
-            width: 480,
-            transform: "translate(-120%, -50%)",
-            color: "var(--color-neutral-02)",
-          }}
-        >
-          <button
-            style={{ display: "block" }}
-            onClick={() => {
-              if (theme === "light") {
-                setTheme("dark");
-              } else {
-                setTheme("light");
-              }
-            }}
-          >
-            Toggle
-          </button>
-          Hello, I am{" "}
-          <span style={{ fontFamily: "Cirka", fontSize: 27 }}>
-            VANCE TAN // VXN
-          </span>{" "}
-          from Singapore. <br />
-          <br />I am a{" "}
-          <span style={{ fontFamily: "Cirka", fontSize: 27 }}>
-            SOFTWARE ENGINEER
-          </span>{" "}
-          and{" "}
-          <span style={{ fontFamily: "Cirka", fontSize: 27 }}>DESIGNER</span>{" "}
-          passionate about building beautiful experiences on the web. Outside of
-          work, I am a hobbyist language learner who built{" "}
-          <a
-            href=""
-            style={{
-              fontFamily: "Cirka",
-              fontSize: 27,
-              textDecoration: "underline",
-              color: "var(--color-neutral-02)",
-            }}
-          >
-            KRUVT
-          </a>
-          , a tool for fellow Thai language learners to practise reading drills,
-          and also an{" "}
-          <a
-            href=""
-            style={{
-              fontFamily: "Cirka",
-              fontSize: 27,
-              textDecoration: "underline",
-              color: "var(--color-neutral-02)",
-            }}
-          >
-            AMATEUR PHOTOGRAPHER
-          </a>
-          .
-        </Html>
         <Intro />
       </Canvas>
     </Suspense>
