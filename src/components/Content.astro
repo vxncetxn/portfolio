@@ -1,8 +1,9 @@
 ---
 import Header from "./Header.astro";
-import Text from "./Text.astro";
+import { Text } from "./Text";
 import Anchor from "./Anchor.astro";
 import Span from "./Span.astro";
+import { ClockWidget } from "./ClockWidget";
 ---
 
 <div
@@ -79,7 +80,7 @@ import Span from "./Span.astro";
           <Text size="small">Based in Singapore</Text>
         </div>
         <Span font="primary" size="small">•</Span>
-        <Text size="small">05:59:24 AM (GMT+8)</Text>
+        <ClockWidget client:idle />
       </div>
       <div class="flex items-center space-x-8">
         <svg

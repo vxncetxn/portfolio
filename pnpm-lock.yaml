@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/react': ^1.1.4
   '@astrojs/tailwind': 2.0.2
-  '@preact/signals-react': ^1.1.0
+  '@preact/signals-react': ^1.1.1
   '@react-three/drei': ^9.32.3
   '@react-three/fiber': 8.8.6
   '@types/react': ^18.0.10
@@ -22,7 +22,7 @@ specifiers:
 dependencies:
   '@astrojs/react': 1.1.4_biqbaboplfbrettd7655fr4n2y
   '@astrojs/tailwind': 2.0.2_tailwindcss@3.1.8
-  '@preact/signals-react': 1.1.0_react@18.2.0
+  '@preact/signals-react': 1.1.1_react@18.2.0
   '@react-three/drei': 9.32.3_o2nh447zx6jvv36vjl7dxczxw4
   '@react-three/fiber': 8.8.6_ww22p6cticflcq7fk2rysgxj34
   '@types/react': 18.0.21
@@ -558,16 +558,16 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: false
 
-  /@preact/signals-core/1.2.0:
-    resolution: {integrity: sha512-GBjq/8WJkh/aenrEMvWIOr1lRfu6nb25er0m6r+4qVqKC85mXAYIbGHnoHTooNXCKxn2KEMUrATvN54MdMHE1A==}
+  /@preact/signals-core/1.2.1:
+    resolution: {integrity: sha512-aqzRMNFU1hoQyP4Kb1ldJrUTCnA9vqPDa7qHEQzHJ3upnBOcC2pjmvjAuTqGuY4AVTtUkCQV0FvOCuIQQ2hSdA==}
     dev: false
 
-  /@preact/signals-react/1.1.0_react@18.2.0:
-    resolution: {integrity: sha512-2EY5F9qxeCmm9pFsyw0/HHxbADm0sKh6rMpvpiZiaDsTmpJFW3FmKE7bPsUP7bqhmQTSrboN9RHrjpE4seGqIA==}
+  /@preact/signals-react/1.1.1_react@18.2.0:
+    resolution: {integrity: sha512-U5HNWBt4q5pmsZjDOuVcz3OXLQtaBMMSErnTHFohOFQClBqHlVD/hmhayEEO38I9iU71kofhw2ngeWso/GsVMw==}
     peerDependencies:
       react: 17.x || 18.x
     dependencies:
-      '@preact/signals-core': 1.2.0
+      '@preact/signals-core': 1.2.1
       react: 18.2.0
     dev: false
 
