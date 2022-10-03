@@ -50,8 +50,8 @@ import Content from "../components/Content.astro";
   </head>
   <body class="bg-neutral-01">
     <main class="w-screen h-screen">
-      <Scene client:idle />
-      <TempThemeSelect client:idle />
+      <Scene client:only="react" />
+      <TempThemeSelect client:only="react" />
       <Content />
     </main>
   </body>

@@ -1,7 +1,12 @@
 import { Vector3 } from "three";
 import { Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { softShadows, Text3D, MeshReflectorMaterial } from "@react-three/drei";
+import {
+  softShadows,
+  Text3D,
+  MeshReflectorMaterial,
+  BakeShadows,
+} from "@react-three/drei";
 import { theme } from "../globals/theme";
 
 softShadows();
@@ -92,6 +97,7 @@ export function Scene() {
             )}
           </mesh>
         </group>
+        {/* <BakeShadows /> */}
         <Intro />
       </Canvas>
     </Suspense>

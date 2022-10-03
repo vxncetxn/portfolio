@@ -15,5 +15,15 @@ export default defineConfig({
   ],
   vite: {
     plugins: [{ ...threeMinifier(), enforce: "pre" }],
+    ssr: {
+      external: [
+        "@preact/signals-core",
+        "@preact/signals-react",
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom",
+      ],
+    },
   },
 });
