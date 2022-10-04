@@ -24,6 +24,7 @@
     "@preact/signals-react": "^1.1.1",
     "@react-three/drei": "^9.32.7",
     "@react-three/fiber": "^8.8.8",
+    "cross-fetch": "^3.1.5",
     "three": "^0.145.0"
   }
 }
