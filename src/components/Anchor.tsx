@@ -14,6 +14,8 @@ export function Anchor({
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener"
       className={`${font === "primary" ? "font-primary" : "font-secondary"} ${
         size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
       } text-neutral-02 underline`}
