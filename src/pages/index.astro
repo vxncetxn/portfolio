@@ -11,18 +11,15 @@ import Content from "../components/Content.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <script>
-      import { theme } from "../globals/theme";
+      import { theme } from "../signals/theme";
       import { effect } from "@preact/signals-react";
-
       (function () {
         function setTheme(newTheme: string) {
           document.documentElement.setAttribute("theme", newTheme);
           theme.value = newTheme;
         }
-
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
-
         if (storedTheme) {
           setTheme(storedTheme);
         } else if (darkModePref.matches) {
@@ -30,7 +27,6 @@ import Content from "../components/Content.astro";
         } else {
           setTheme("light");
         }
-
         darkModePref.addEventListener("change", (e) => {
           if (!storedTheme) {
             if (e.matches) {
@@ -40,7 +36,6 @@ import Content from "../components/Content.astro";
             }
           }
         });
-
         effect(() => {
           document.documentElement.setAttribute("theme", theme.value);
         });

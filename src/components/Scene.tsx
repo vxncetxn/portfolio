@@ -7,7 +7,7 @@ import {
   MeshReflectorMaterial,
   BakeShadows,
 } from "@react-three/drei";
-import { theme } from "../globals/theme";
+import { theme } from "../signals/theme";
 
 softShadows();
 
@@ -97,7 +97,7 @@ export function Scene() {
             )}
           </mesh>
         </group>
-        {/* <BakeShadows /> */}
+        <BakeShadows />
         <Intro />
       </Canvas>
     </Suspense>

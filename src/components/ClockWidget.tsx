@@ -14,7 +14,7 @@ export function ClockWidget() {
   });
 
   return (
-    <Text size="small" className="tabular-nums ml-12">
+    <Text size="small" className="ml-12 tabular-nums">
       {time.value} (GMT+8)
     </Text>
   );
