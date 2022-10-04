@@ -1,54 +1,42 @@
-import { getNowPlaying } from "lib/spotify";
+import { getNowPlaying } from "../src/utils/spotify";
 
-export const config = {
-  runtime: "experimental-edge",
-};
+export default async function handler(_, response) {
+  const data = await getNowPlaying();
 
-export default async function handler(req) {
-  const response = await getNowPlaying();
-
-  if (response.status === 204 || response.status > 400) {
-    return new Response(JSON.stringify({ isPlaying: false }), {
-      status: 200,
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+  if (data.status === 204 || data.status > 400) {
+    return response
+      .status(200)
+      .setHeader("content-type", "application/json")
+      .json({ isPlaying: false });
   }
 
-  const song = await response.json();
+  const song = await data.json();
 
   if (song.item === null) {
-    return new Response(JSON.stringify({ isPlaying: false }), {
-      status: 200,
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return response
+      .status(200)
+      .setHeader("content-type", "application/json")
+      .json({ isPlaying: false });
   }
 
   const isPlaying = song.is_playing;
   const title = song.item.name;
   const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
-  const album = song.item.album.name;
   const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
 
-  return new Response(
-    JSON.stringify({
-      album,
+  return response
+    .status(200)
+    .setHeader("content-type", "application/json")
+    .setHeader(
+      "cache-control",
+      "public, s-maxage=60, stale-while-revalidate=30"
+    )
+    .json({
       albumImageUrl,
       artist,
       isPlaying,
       songUrl,
       title,
-    }),
-    {
-      status: 200,
-      headers: {
-        "content-type": "application/json",
-        "cache-control": "public, s-maxage=60, stale-while-revalidate=30",
-      },
-    }
-  );
+    });
 }

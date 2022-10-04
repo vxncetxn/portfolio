@@ -1,8 +1,8 @@
-import { theme } from "../globals/theme";
+import { theme } from "../signals/theme";
 
 export function TempThemeSelect() {
   return (
-    <div className="absolute right-120 top-64 flex space-x-12 text-neutral-02">
+    <div className="absolute flex space-x-12 right-120 top-64 text-neutral-02">
       <button
         onClick={() => {
           theme.value = "light";
