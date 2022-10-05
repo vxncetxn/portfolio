@@ -1,6 +1,6 @@
 ---
 import "../base.css";
-import { Scene } from "../components/Scene";
+import { Canvas } from "../components/Canvas";
 import { TempThemeSelect } from "../components/TempThemeSelect";
 import Content from "../components/Content.astro";
 ---
@@ -45,7 +45,7 @@ import Content from "../components/Content.astro";
   </head>
   <body class="bg-neutral-01">
     <main class="w-screen h-screen">
-      <Scene client:only="react" />
+      <Canvas client:only="react" />
       <TempThemeSelect client:only="react" />
       <Content />
     </main>
