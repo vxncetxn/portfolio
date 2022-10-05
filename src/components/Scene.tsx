@@ -1,6 +1,6 @@
 import { Vector3 } from "three";
-import { Suspense, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useState } from "react";
+import { useFrame } from "@react-three/fiber";
 import {
   softShadows,
   Text3D,
@@ -24,15 +24,6 @@ function Intro() {
 
 export function Scene() {
   return (
-    // <Suspense fallback={null}>
-    //   <Canvas
-    //     shadows={theme.value === "light" ? true : false}
-    //     camera={{
-    //       fov: 60,
-    //     }}
-    //     dpr={1}
-    //     // frameloop="demand"
-    //   >
     <>
       {theme.value === "light" ? (
         <>
@@ -101,7 +92,5 @@ export function Scene() {
       <BakeShadows />
       <Intro />
     </>
-    //   </Canvas>
-    // </Suspense>
   );
 }

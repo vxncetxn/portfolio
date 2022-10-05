@@ -10,6 +10,10 @@ import Content from "../components/Content.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="module"
+      src={(await import("../utils/offscreen-worker.ts?url")).default}
+    ></script>
     <script>
       import { theme } from "../signals/theme";
       import { effect } from "@preact/signals-react";
