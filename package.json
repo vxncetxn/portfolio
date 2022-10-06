@@ -21,6 +21,7 @@
     "tailwindcss-capsize": "^3.0.2"
   },
   "dependencies": {
+    "@legendapp/state": "^0.18.8",
     "@preact/signals-react": "^1.1.1",
     "@react-three/drei": "^9.32.7",
     "@react-three/fiber": "^8.8.8",

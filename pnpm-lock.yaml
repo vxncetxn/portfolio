@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/react': ^1.1.4
   '@astrojs/tailwind': ^1.0.0
+  '@legendapp/state': ^0.18.8
   '@preact/signals-react': ^1.1.1
   '@react-three/drei': ^9.32.7
   '@react-three/fiber': ^8.8.8
@@ -20,6 +21,7 @@ specifiers:
   three: ^0.145.0
 
 dependencies:
+  '@legendapp/state': 0.18.8_react@18.2.0
   '@preact/signals-react': 1.1.1_react@18.2.0
   '@react-three/drei': 9.32.7_evnagsblcoegeg5vemh5eis3sq
   '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
@@ -483,6 +485,23 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@legendapp/state/0.18.8_react@18.2.0:
+    resolution: {integrity: sha512-xDqTO380hOi9bdSCaFEGox7C9Kthr2ZtCzV6jNZ42Xrg2EywDePCl2hvQzbInyvOcIkFEuFWmLbTpsTX72LMjA==}
+    peerDependencies:
+      react: '>=16.8'
+      react-native: '>=0.61'
+      react-native-mmkv: ^2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-native:
+        optional: true
+      react-native-mmkv:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}

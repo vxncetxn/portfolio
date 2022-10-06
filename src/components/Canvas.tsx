@@ -1,32 +1,6 @@
 // @ts-nocheck
 import { useRef, useEffect } from "react";
-// import * as THREE from "three";
-import {
-  //   Plane,
-  //   Vector3,
-  //   Matrix4,
-  //   Vector4,
-  //   PerspectiveCamera,
-  //   LinearFilter,
-  //   HalfFloatType,
-  //   WebGLRenderTarget,
-  //   DepthTexture,
-  //   DepthFormat,
-  //   UnsignedShortType,
-  //   MeshStandardMaterial,
-  //   Texture,
-  AmbientLight,
-  DirectionalLight,
-  Color,
-  Fog,
-  PointLight,
-  MeshLambertMaterial,
-  Group,
-  Mesh,
-  //   PlaneGeometry,
-  ShadowMaterial,
-  PlaneBufferGeometry,
-} from "three";
+import * as THREE from "three";
 import { extend, createRoot, events } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { theme } from "../signals/theme";
@@ -61,9 +35,14 @@ export function Canvas() {
 
         window.addEventListener(
           "pointermove",
-          //   throttle(api.onPointerMove.bind(api), 100)
-          api.onPointerMove.bind(api)
+          throttle(api.onPointerMove.bind(api), 100)
+          //   api.onPointerMove.bind(api)
         );
+        window.addEventListener("changetheme", api.onChangeTheme.bind(api));
+
+        let customEv = new CustomEvent("changetheme");
+        customEv["theme"] = theme.get();
+        window.dispatchEvent(customEv);
 
         await api.init(
           Comlink.transfer(
@@ -83,43 +62,18 @@ export function Canvas() {
         window.addEventListener("resize", api.onResize.bind(api));
         // window.dispatchEvent(new Event("resize"));
       } else {
-        extend({
-          //   Plane,
-          //   Vector3,
-          //   Matrix4,
-          //   Vector4,
-          //   PerspectiveCamera,
-          //   LinearFilter,
-          //   HalfFloatType,
-          //   WebGLRenderTarget,
-          //   DepthTexture,
-          //   DepthFormat,
-          //   UnsignedShortType,
-          //   MeshStandardMaterial,
-          //   Texture,
-          AmbientLight,
-          DirectionalLight,
-          Color,
-          Fog,
-          PointLight,
-          MeshLambertMaterial,
-          Group,
-          Mesh,
-          //   PlaneGeometry,
-          ShadowMaterial,
-          PlaneBufferGeometry,
-        });
+        extend(THREE);
         const root = createRoot(canvasRef.current);
 
         window.addEventListener("resize", () => {
           root.configure({
             events,
-            shadows: theme.value === "light" ? true : false,
+            shadows: theme.get() === "light" ? true : false,
             camera: { fov: 60 },
             dpr: 1,
             size: { width: window.innerWidth, height: window.innerHeight },
           });
-          root.render(<Scene />);
+          root.render(<Scene theme={theme} />);
         });
         window.dispatchEvent(new Event("resize"));
       }

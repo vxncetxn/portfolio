@@ -1,8 +1,11 @@
 ---
+import { enableLegendStateReact } from "@legendapp/state/react";
 import "../base.css";
 import { Canvas } from "../components/Canvas";
 import { TempThemeSelect } from "../components/TempThemeSelect";
 import Content from "../components/Content.astro";
+
+enableLegendStateReact();
 ---
 
 <html lang="en">
@@ -12,36 +15,28 @@ import Content from "../components/Content.astro";
     <meta name="generator" content={Astro.generator} />
     <script
       type="module"
-      src={(await import("../utils/offscreen-worker.ts?url")).default}
+      src={(await import("../utils/offscreen-worker.tsx?url")).default}
     ></script>
     <script>
       import { theme } from "../signals/theme";
-      import { effect } from "@preact/signals-react";
       (function () {
-        function setTheme(newTheme: string) {
-          document.documentElement.setAttribute("theme", newTheme);
-          theme.value = newTheme;
-        }
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
         if (storedTheme) {
-          setTheme(storedTheme);
+          theme.set(storedTheme);
         } else if (darkModePref.matches) {
-          setTheme("dark");
+          theme.set("dark");
         } else {
-          setTheme("light");
+          theme.set("light");
         }
         darkModePref.addEventListener("change", (e) => {
           if (!storedTheme) {
             if (e.matches) {
-              setTheme("dark");
+              theme.set("dark");
             } else {
-              setTheme("light");
+              theme.set("light");
             }
           }
-        });
-        effect(() => {
-          document.documentElement.setAttribute("theme", theme.value);
         });
       })();
     </script>
@@ -50,7 +45,7 @@ import Content from "../components/Content.astro";
   <body class="bg-neutral-01">
     <main class="w-screen h-screen">
       <Canvas client:only="react" />
-      <TempThemeSelect client:only="react" />
+      <TempThemeSelect client:idle />
       <Content />
     </main>
   </body>

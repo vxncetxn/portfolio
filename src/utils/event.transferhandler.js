@@ -8,16 +8,10 @@ export function initTransferHandler() {
     serialize(ev) {
       return [
         {
-          // detail: ev && ev.detail,
-          // wheelDelta: ev && ev.wheelDelta,
-          // wheelDeltaY: ev && ev.wheelDeltaY,
-          // wheelDeltaX: ev && ev.wheelDeltaX,
-          // deltaY: ev && ev.deltaY,
-          // deltaX: ev && ev.deltaX,
-          // deltaMode: ev && ev.deltaMode,
           eventName: ev && ev.type,
           offsetX: ev && ev.offsetX,
           offsetY: ev && ev.offsetY,
+          theme: ev && ev.theme,
         },
         [],
       ];
