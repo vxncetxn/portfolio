@@ -33,10 +33,10 @@ export function Canvas() {
         const worker = new OffscreenWorker();
         const api = Comlink.wrap(worker);
 
-        window.addEventListener(
+        canvas.addEventListener(
           "pointermove",
-          throttle(api.onPointerMove.bind(api), 100)
-          //   api.onPointerMove.bind(api)
+          //   throttle(api.onPointerMove.bind(api), 100)
+          api.onPointerMove.bind(api)
         );
         window.addEventListener("changetheme", api.onChangeTheme.bind(api));
 
@@ -71,7 +71,13 @@ export function Canvas() {
             shadows: true,
             camera: { fov: 60 },
             dpr: 1,
-            size: { width: window.innerWidth, height: window.innerHeight },
+            size: {
+              width: window.innerWidth,
+              height: window.innerHeight,
+              top: 0,
+              left: 0,
+              updateStyle: false,
+            },
           });
           root.render(<Scene theme={theme} />);
         });
