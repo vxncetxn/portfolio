@@ -3,11 +3,12 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/react': ^1.1.4
   '@astrojs/tailwind': ^1.0.0
-  '@preact/signals-react': ^1.1.1
+  '@legendapp/state': ^0.19.0
   '@react-three/drei': ^9.32.7
   '@react-three/fiber': ^8.8.8
   '@types/three': ^0.144.0
   astro: 1.1.3
+  comlink: ^4.3.1
   cross-fetch: ^3.1.5
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.5.3
@@ -19,9 +20,10 @@ specifiers:
   three: ^0.145.0
 
 dependencies:
-  '@preact/signals-react': 1.1.1_react@18.2.0
+  '@legendapp/state': 0.19.0_react@18.2.0
   '@react-three/drei': 9.32.7_evnagsblcoegeg5vemh5eis3sq
   '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
+  comlink: 4.3.1
   cross-fetch: 3.1.5
   swr: 1.3.0_react@18.2.0
   three: 0.145.0
@@ -482,6 +484,23 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
+  /@legendapp/state/0.19.0_react@18.2.0:
+    resolution: {integrity: sha512-ztD8Ym1Z+y8EmrMf1qIc+SlF2DZvoJdCi+imqi6Zgs6c6CDnjpeMCBNe2vLXHqBjQMWOemMTVfkyU1zN6F5k7w==}
+    peerDependencies:
+      react: '>=16.8'
+      react-native: '>=0.61'
+      react-native-mmkv: ^2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-native:
+        optional: true
+      react-native-mmkv:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: true
@@ -522,19 +541,6 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
-
-  /@preact/signals-core/1.2.1:
-    resolution: {integrity: sha512-aqzRMNFU1hoQyP4Kb1ldJrUTCnA9vqPDa7qHEQzHJ3upnBOcC2pjmvjAuTqGuY4AVTtUkCQV0FvOCuIQQ2hSdA==}
-    dev: false
-
-  /@preact/signals-react/1.1.1_react@18.2.0:
-    resolution: {integrity: sha512-U5HNWBt4q5pmsZjDOuVcz3OXLQtaBMMSErnTHFohOFQClBqHlVD/hmhayEEO38I9iU71kofhw2ngeWso/GsVMw==}
-    peerDependencies:
-      react: 17.x || 18.x
-    dependencies:
-      '@preact/signals-core': 1.2.1
-      react: 18.2.0
-    dev: false
 
   /@proload/core/0.3.2:
     resolution: {integrity: sha512-4ga4HpS0ieVYWVMS+F62W++6SNACBu0lkw8snw3tEdH6AeqZu8i8262n3I81jWAWXVcg3sMfhb+kBexrfGrTUQ==}
@@ -1194,6 +1200,10 @@ packages:
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
+
+  /comlink/4.3.1:
+    resolution: {integrity: sha512-+YbhUdNrpBZggBAHWcgQMLPLH1KDF3wJpeqrCKieWQ8RL7atmgsgTQko1XEBK6PsecfopWNntopJ+ByYG1lRaA==}
+    dev: false
 
   /comma-separated-tokens/2.0.2:
     resolution: {integrity: sha512-G5yTt3KQN4Yn7Yk4ed73hlZ1evrFKXeUW3086p3PRFNp7m2vIjI6Pg+Kgb+oyzhd9F2qdcoj67+y3SdxL5XWsg==}

@@ -1,6 +1,6 @@
 ---
 import "../base.css";
-import { Scene } from "../components/Scene";
+import { Canvas } from "../components/Canvas";
 import { TempThemeSelect } from "../components/TempThemeSelect";
 import Content from "../components/Content.astro";
 ---
@@ -10,34 +10,32 @@ import Content from "../components/Content.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="module"
+      src={(await import("../lib/offscreen-worker.tsx?url")).default}
+    ></script>
     <script>
-      import { theme } from "../signals/theme";
-      import { effect } from "@preact/signals-react";
+      import { theme } from "../state/theme";
+      import { enableLegendStateReact } from "@legendapp/state/react";
       (function () {
-        function setTheme(newTheme: string) {
-          document.documentElement.setAttribute("theme", newTheme);
-          theme.value = newTheme;
-        }
+        enableLegendStateReact();
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
         if (storedTheme) {
-          setTheme(storedTheme);
+          theme.set(storedTheme);
         } else if (darkModePref.matches) {
-          setTheme("dark");
+          theme.set("dark");
         } else {
-          setTheme("light");
+          theme.set("light");
         }
         darkModePref.addEventListener("change", (e) => {
           if (!storedTheme) {
             if (e.matches) {
-              setTheme("dark");
+              theme.set("dark");
             } else {
-              setTheme("light");
+              theme.set("light");
             }
           }
-        });
-        effect(() => {
-          document.documentElement.setAttribute("theme", theme.value);
         });
       })();
     </script>
@@ -45,8 +43,8 @@ import Content from "../components/Content.astro";
   </head>
   <body class="bg-neutral-01">
     <main class="w-screen h-screen">
-      <Scene client:only="react" />
-      <TempThemeSelect client:only="react" />
+      <Canvas client:only="react" />
+      <TempThemeSelect client:idle />
       <Content />
     </main>
   </body>
