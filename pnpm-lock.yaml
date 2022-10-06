@@ -10,6 +10,7 @@ specifiers:
   astro: 1.1.3
   comlink: ^4.3.1
   cross-fetch: ^3.1.5
+  mitt: ^3.0.0
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.5.3
   react: ^18.1.0
@@ -25,6 +26,7 @@ dependencies:
   '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
   comlink: 4.3.1
   cross-fetch: 3.1.5
+  mitt: 3.0.0
   swr: 1.3.0_react@18.2.0
   three: 0.145.0
 
@@ -2649,6 +2651,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /mitt/3.0.0:
+    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+    dev: false
 
   /mmd-parser/1.0.4:
     resolution: {integrity: sha512-Qi0VCU46t2IwfGv5KF0+D/t9cizcDug7qnNoy9Ggk7aucp0tssV8IwTMkBlDbm+VqAf3cdQHTCARKSsuS2MYFg==}

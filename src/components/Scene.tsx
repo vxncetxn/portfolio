@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 import { Vector3 } from "three";
 import { useState } from "react";
 import { useFrame } from "@react-three/fiber";
