@@ -68,7 +68,7 @@ export function Canvas() {
         window.addEventListener("resize", () => {
           root.configure({
             events,
-            shadows: theme.get() === "light" ? true : false,
+            shadows: true,
             camera: { fov: 60 },
             dpr: 1,
             size: { width: window.innerWidth, height: window.innerHeight },

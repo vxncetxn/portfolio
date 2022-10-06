@@ -36,7 +36,7 @@ function Component({ theme }) {
       )}
       <ambientLight intensity={0.4} />
       <directionalLight
-        castShadow
+        castShadow={selectedTheme === "light"}
         position={[2.5, 8, 5]}
         intensity={1.5}
         shadow-mapSize-width={1024}
@@ -50,8 +50,8 @@ function Component({ theme }) {
       <pointLight position={[-10, 0, -20]} color="red" intensity={2.0} />
       <Text3D
         font="/PPMonumentExtended_Bold_reduced.json"
-        receiveShadow
-        castShadow
+        receiveShadow={selectedTheme === "light"}
+        castShadow={selectedTheme === "light"}
         size={4}
         height={1}
         position={[0, -5, 0]}
@@ -60,14 +60,18 @@ function Component({ theme }) {
         vxn
         <meshLambertMaterial />
       </Text3D>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]} receiveShadow>
+      <mesh
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, -5, 0]}
+        receiveShadow={selectedTheme === "light"}
+      >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />
         {selectedTheme === "light" ? (
           <shadowMaterial attach="material" color="red" opacity={0.4} />
         ) : (
           <MeshReflectorMaterial
             blur={[300, 100]}
-            resolution={2048}
+            resolution={1024}
             mixBlur={1}
             mixStrength={40}
             roughness={1}
