@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/react': ^1.1.4
   '@astrojs/tailwind': ^1.0.0
-  '@legendapp/state': ^0.18.8
+  '@legendapp/state': ^0.19.0
   '@react-three/drei': ^9.32.7
   '@react-three/fiber': ^8.8.8
   '@types/three': ^0.144.0
@@ -20,7 +20,7 @@ specifiers:
   three: ^0.145.0
 
 dependencies:
-  '@legendapp/state': 0.18.8_react@18.2.0
+  '@legendapp/state': 0.19.0_react@18.2.0
   '@react-three/drei': 9.32.7_evnagsblcoegeg5vemh5eis3sq
   '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
   comlink: 4.3.1
@@ -484,8 +484,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@legendapp/state/0.18.8_react@18.2.0:
-    resolution: {integrity: sha512-xDqTO380hOi9bdSCaFEGox7C9Kthr2ZtCzV6jNZ42Xrg2EywDePCl2hvQzbInyvOcIkFEuFWmLbTpsTX72LMjA==}
+  /@legendapp/state/0.19.0_react@18.2.0:
+    resolution: {integrity: sha512-ztD8Ym1Z+y8EmrMf1qIc+SlF2DZvoJdCi+imqi6Zgs6c6CDnjpeMCBNe2vLXHqBjQMWOemMTVfkyU1zN6F5k7w==}
     peerDependencies:
       react: '>=16.8'
       react-native: '>=0.61'

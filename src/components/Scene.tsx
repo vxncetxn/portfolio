@@ -29,6 +29,7 @@ function Intro() {
 }
 
 export function Scene({ theme }: SceneProps) {
+  console.log("Scene rerendered");
   const selectedTheme = useSelector(() => theme.get());
 
   return (

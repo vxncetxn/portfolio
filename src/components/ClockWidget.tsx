@@ -1,12 +1,9 @@
 import { useEffect } from "react";
-import { observable } from "@legendapp/state";
-import { useSelector } from "@legendapp/state/react";
+import { useObservable } from "@legendapp/state/react";
 import { Text } from "./Text";
 
-const time = observable(new Date().toLocaleTimeString("en-US"));
-
 export function ClockWidget() {
-  const selectedTime = useSelector(() => time.get());
+  const time = useObservable(new Date().toLocaleTimeString("en-US"));
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -15,11 +12,11 @@ export function ClockWidget() {
     return () => {
       clearInterval(timerId);
     };
-  });
+  }, []);
 
   return (
     <Text size="small" className="ml-12 tabular-nums">
-      {selectedTime} (GMT+8)
+      {time} (GMT+8)
     </Text>
   );
 }

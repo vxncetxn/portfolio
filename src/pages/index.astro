@@ -1,11 +1,11 @@
 ---
-import { enableLegendStateReact } from "@legendapp/state/react";
+// import { enableLegendStateReact } from "@legendapp/state/react";
 import "../base.css";
 import { Canvas } from "../components/Canvas";
 import { TempThemeSelect } from "../components/TempThemeSelect";
 import Content from "../components/Content.astro";
 
-enableLegendStateReact();
+// enableLegendStateReact();
 ---
 
 <html lang="en">
@@ -19,7 +19,9 @@ enableLegendStateReact();
     ></script>
     <script>
       import { theme } from "../state/theme";
+      import { enableLegendStateReact } from "@legendapp/state/react";
       (function () {
+        enableLegendStateReact();
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
         if (storedTheme) {
