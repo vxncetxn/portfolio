@@ -22,7 +22,7 @@ const api = {
     root.configure({
       events,
       shadows: true,
-      camera: { fov: 60 },
+      camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
       size: dimensions,
     });
@@ -39,7 +39,7 @@ const api = {
     root.configure({
       events,
       shadows: true,
-      camera: { fov: 60 },
+      camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
       size: { width: window.innerWidth, height: window.innerHeight },
     });

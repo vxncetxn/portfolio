@@ -7,6 +7,7 @@ import {
   Text3D,
   MeshReflectorMaterial,
   BakeShadows,
+  PerformanceMonitor,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
@@ -29,7 +30,6 @@ function Intro() {
 }
 
 export function Scene({ theme }: SceneProps) {
-  console.log("Scene rerendered");
   const selectedTheme = useSelector(() => theme.get());
 
   return (
@@ -44,8 +44,8 @@ export function Scene({ theme }: SceneProps) {
         castShadow={selectedTheme === "light"}
         position={[2.5, 8, 5]}
         intensity={1.5}
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
         shadow-camera-far={50}
         shadow-camera-left={-20}
         shadow-camera-right={20}
@@ -91,6 +91,7 @@ export function Scene({ theme }: SceneProps) {
       </mesh>
       <BakeShadows />
       <Intro />
+      <PerformanceMonitor onChange={(api) => console.log(api)} />
     </>
   );
 }
