@@ -1,4 +1,3 @@
-// import React from "react";
 import ReactDOM from "react-dom";
 import { Vector3 } from "three";
 import React, { useState } from "react";
@@ -10,8 +9,13 @@ import {
   BakeShadows,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
+import type { ObservablePrimitive } from "@legendapp/state";
 
 softShadows();
+
+interface SceneProps {
+  theme: ObservablePrimitive<string>;
+}
 
 function Intro() {
   const [vec] = useState(() => new Vector3());
@@ -24,7 +28,7 @@ function Intro() {
   });
 }
 
-function Component({ theme }) {
+export function Scene({ theme }: SceneProps) {
   const selectedTheme = useSelector(() => theme.get());
 
   return (
@@ -86,14 +90,6 @@ function Component({ theme }) {
       </mesh>
       <BakeShadows />
       <Intro />
-    </>
-  );
-}
-
-export function Scene({ theme }) {
-  return (
-    <>
-      <Component theme={theme} />
     </>
   );
 }

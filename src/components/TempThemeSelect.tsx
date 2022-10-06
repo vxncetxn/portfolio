@@ -1,5 +1,4 @@
-// import { theme } from "../signals/theme";
-import { theme } from "../signals/theme";
+import { theme } from "../state/theme";
 
 export function TempThemeSelect() {
   return (

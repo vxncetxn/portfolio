@@ -15,10 +15,10 @@ enableLegendStateReact();
     <meta name="generator" content={Astro.generator} />
     <script
       type="module"
-      src={(await import("../utils/offscreen-worker.tsx?url")).default}
+      src={(await import("../lib/offscreen-worker.tsx?url")).default}
     ></script>
     <script>
-      import { theme } from "../signals/theme";
+      import { theme } from "../state/theme";
       (function () {
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark");

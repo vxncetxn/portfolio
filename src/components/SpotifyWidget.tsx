@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import { fetcher } from "../utils/fetcher";
+import { fetcher } from "../lib/fetcher";
 import { Text } from "./Text";
 import { Anchor } from "./Anchor";
 

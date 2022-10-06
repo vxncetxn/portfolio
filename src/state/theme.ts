@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { observable } from "@legendapp/state";
 
 export const theme = observable("light");

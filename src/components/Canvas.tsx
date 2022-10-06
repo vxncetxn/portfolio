@@ -3,21 +3,21 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { extend, createRoot, events } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
-import { theme } from "../signals/theme";
-import OffscreenWorker from "../utils/offscreen-worker?worker";
+import { theme } from "../state/theme";
+import OffscreenWorker from "../lib/offscreen-worker?worker";
 import * as Comlink from "comlink";
-import { initTransferHandler } from "../utils/event.transferhandler";
+import { initTransferHandler } from "../lib/event.transferhandler";
 
-function throttle(callback, offset) {
-  let baseTime = 0;
-  return (...args) => {
-    const currentTime = Date.now();
-    if (baseTime + offset <= currentTime) {
-      baseTime = currentTime;
-      callback(...args);
-    }
-  };
-}
+// function throttle(callback, offset) {
+//   let baseTime = 0;
+//   return (...args) => {
+//     const currentTime = Date.now();
+//     if (baseTime + offset <= currentTime) {
+//       baseTime = currentTime;
+//       callback(...args);
+//     }
+//   };
+// }
 
 initTransferHandler();
 
@@ -25,7 +25,7 @@ export function Canvas() {
   const canvasRef = useRef();
 
   useEffect(() => {
-    async function temp() {
+    async function createRootFromCanvas() {
       const canvas = canvasRef.current;
 
       if (canvas.transferControlToOffscreen) {
@@ -63,7 +63,7 @@ export function Canvas() {
         // window.dispatchEvent(new Event("resize"));
       } else {
         extend(THREE);
-        const root = createRoot(canvasRef.current);
+        const root = createRoot(canvas);
 
         window.addEventListener("resize", () => {
           root.configure({
@@ -85,7 +85,7 @@ export function Canvas() {
       }
     }
 
-    temp();
+    createRootFromCanvas();
   }, []);
 
   return <canvas ref={canvasRef} />;
