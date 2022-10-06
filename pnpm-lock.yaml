@@ -4,7 +4,6 @@ specifiers:
   '@astrojs/react': ^1.1.4
   '@astrojs/tailwind': ^1.0.0
   '@legendapp/state': ^0.18.8
-  '@preact/signals-react': ^1.1.1
   '@react-three/drei': ^9.32.7
   '@react-three/fiber': ^8.8.8
   '@types/three': ^0.144.0
@@ -22,7 +21,6 @@ specifiers:
 
 dependencies:
   '@legendapp/state': 0.18.8_react@18.2.0
-  '@preact/signals-react': 1.1.1_react@18.2.0
   '@react-three/drei': 9.32.7_evnagsblcoegeg5vemh5eis3sq
   '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
   comlink: 4.3.1
@@ -543,19 +541,6 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
-
-  /@preact/signals-core/1.2.1:
-    resolution: {integrity: sha512-aqzRMNFU1hoQyP4Kb1ldJrUTCnA9vqPDa7qHEQzHJ3upnBOcC2pjmvjAuTqGuY4AVTtUkCQV0FvOCuIQQ2hSdA==}
-    dev: false
-
-  /@preact/signals-react/1.1.1_react@18.2.0:
-    resolution: {integrity: sha512-U5HNWBt4q5pmsZjDOuVcz3OXLQtaBMMSErnTHFohOFQClBqHlVD/hmhayEEO38I9iU71kofhw2ngeWso/GsVMw==}
-    peerDependencies:
-      react: 17.x || 18.x
-    dependencies:
-      '@preact/signals-core': 1.2.1
-      react: 18.2.0
-    dev: false
 
   /@proload/core/0.3.2:
     resolution: {integrity: sha512-4ga4HpS0ieVYWVMS+F62W++6SNACBu0lkw8snw3tEdH6AeqZu8i8262n3I81jWAWXVcg3sMfhb+kBexrfGrTUQ==}

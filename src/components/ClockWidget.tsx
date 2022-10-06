@@ -1,12 +1,16 @@
-import { useSignal, useSignalEffect } from "@preact/signals-react";
+import { useEffect } from "react";
+import { observable } from "@legendapp/state";
+import { useSelector } from "@legendapp/state/react";
 import { Text } from "./Text";
 
-export function ClockWidget() {
-  const time = useSignal(new Date().toLocaleTimeString("en-US"));
+const time = observable(new Date().toLocaleTimeString("en-US"));
 
-  useSignalEffect(() => {
+export function ClockWidget() {
+  const selectedTime = useSelector(() => time.get());
+
+  useEffect(() => {
     const timerId = setInterval(() => {
-      time.value = new Date().toLocaleTimeString("en-US");
+      time.set(new Date().toLocaleTimeString("en-US"));
     }, 1000);
     return () => {
       clearInterval(timerId);
@@ -15,7 +19,7 @@ export function ClockWidget() {
 
   return (
     <Text size="small" className="ml-12 tabular-nums">
-      {time.value} (GMT+8)
+      {selectedTime} (GMT+8)
     </Text>
   );
 }
