@@ -12,6 +12,7 @@ export function initTransferHandler() {
           offsetX: ev && ev.offsetX,
           offsetY: ev && ev.offsetY,
           theme: ev && ev.theme,
+          color: ev && ev.color,
         },
         [],
       ];

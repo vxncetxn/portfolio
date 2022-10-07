@@ -38,11 +38,11 @@ selectedOption.onChange((value) => {
   }
 });
 
-export function ThemeButtonsGroup() {
+export function ThemeTool() {
   const $selectedOption = useSelector(() => selectedOption.get());
 
   return (
-    <div className="flex absolute right-120 top-64 text-neutral-02 bg-neutral-03 w-240 rounded-16 px-8 py-8 transition-colors">
+    <div className="flex text-neutral-02 bg-neutral-03 w-240 rounded-16 px-8 py-8 transition-colors">
       <div
         className={
           $selectedOption === "Light"
@@ -55,7 +55,7 @@ export function ThemeButtonsGroup() {
       {options.map((option) => (
         <button
           onClick={() => selectedOption.set(option)}
-          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors"
+          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors rounded-8 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
         >
           {option}
         </button>

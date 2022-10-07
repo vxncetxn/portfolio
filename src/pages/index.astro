@@ -1,9 +1,10 @@
 ---
 import "../base.css";
 import { Canvas } from "../components/Canvas";
-import { TempThemeSelect } from "../components/TempThemeSelect";
-import { ThemeButtonsGroup } from "../components/ThemeButtonsGroup";
+import { ThemeTool } from "../components/ThemeTool";
+import { ColorTool } from "../components/ColorTool";
 import Content from "../components/Content.astro";
+// import { SEO } from "astro-seo";
 ---
 
 <html lang="en">
@@ -40,13 +41,45 @@ import Content from "../components/Content.astro";
         });
       })();
     </script>
+    <!-- <SEO
+      title="Vance Tan // VXN"
+      description="Vance Tan is a software engineer and designer based in Singapore who is passionate about building beautiful experiences on the web."
+      openGraph={{
+        basic: {
+          title: "Vance Tan // VXN",
+          type: "website",
+          image: "/meta-image.jpg",
+        },
+        image: {
+          alt: "Cover image for vancetan.me",
+          type: "image/jpeg",
+          width: 1200,
+          height: 630,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@vxncetxn",
+        creator: "@vxncetxn",
+      }}
+      extend={{
+        meta: [
+          {
+            name: "twitter:image",
+            content: "/meta-image-twitter.jpg",
+          },
+        ],
+      }}
+    /> -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="bg-neutral-01 transition-colors">
     <main class="w-screen h-screen">
       <Canvas client:only="react" />
-      <!-- <TempThemeSelect client:idle /> -->
-      <ThemeButtonsGroup client:only="react" />
+      <div class="absolute right-120 top-64 flex">
+        <ThemeTool client:only="react" />
+        <ColorTool client:only="react" />
+      </div>
       <Content />
     </main>
   </body>

@@ -15,6 +15,7 @@ softShadows();
 
 interface SceneProps {
   theme: ObservablePrimitive<string>;
+  color: ObservablePrimitive<string>;
 }
 
 function Intro() {
@@ -28,8 +29,9 @@ function Intro() {
   });
 }
 
-export function Scene({ theme }: SceneProps) {
+export function Scene({ theme, color }: SceneProps) {
   const selectedTheme = useSelector(() => theme.get());
+  const selectedColor = useSelector(() => color.get());
 
   return (
     <>
@@ -38,7 +40,7 @@ export function Scene({ theme }: SceneProps) {
       ) : (
         <fog attach="fog" args={["#1c1c1c", 0, 40]} />
       )}
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.2} />
       <directionalLight
         castShadow={selectedTheme === "light"}
         position={[2.5, 8, 5]}
@@ -51,7 +53,11 @@ export function Scene({ theme }: SceneProps) {
         shadow-camera-top={20}
         shadow-camera-bottom={-20}
       />
-      <pointLight position={[-10, 0, -20]} color="red" intensity={2.0} />
+      <pointLight
+        position={[-10, 0, -20]}
+        color={selectedColor}
+        intensity={2.0}
+      />
       <Text3D
         font="/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
@@ -71,7 +77,11 @@ export function Scene({ theme }: SceneProps) {
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />
         {selectedTheme === "light" ? (
-          <shadowMaterial attach="material" color="red" opacity={0.4} />
+          <shadowMaterial
+            attach="material"
+            color={selectedColor}
+            opacity={0.4}
+          />
         ) : (
           <MeshReflectorMaterial
             blur={[300, 100]}

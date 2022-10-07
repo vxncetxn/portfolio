@@ -18,12 +18,17 @@
   --color-neutral-01: #ffffff;
   --color-neutral-02: #100a0a;
   --color-neutral-03: #f5f5f5;
+  --color-neutral-04: #ebebeb;
+  --color-theme-01: #34fdaa;
+  --color-theme-02: #fa1c41;
+  --color-theme-selected: var(--color-theme-01);
 }
 
 [theme="dark"] {
   --color-neutral-01: #100a0a;
   --color-neutral-02: #ffffff;
   --color-neutral-03: #262626;
+  --color-neutral-04: #454545;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,5 +36,6 @@
     --color-neutral-01: #100a0a;
     --color-neutral-02: #ffffff;
     --color-neutral-03: #262626;
+    --color-neutral-04: #454545;
   }
 }
