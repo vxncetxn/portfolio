@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { useRef, useEffect } from "react";
-import * as THREE from "three";
-import { extend, createRoot, events } from "@react-three/fiber";
+import { createRoot, events } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { theme } from "../state/theme";
 import { color } from "../state/color";
@@ -64,7 +63,6 @@ export function Canvas() {
         window.addEventListener("resize", api.onResize.bind(api));
         // window.dispatchEvent(new Event("resize"));
       } else {
-        extend(THREE);
         const root = createRoot(canvas);
 
         window.addEventListener("resize", () => {

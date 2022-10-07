@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
-import { Vector3 } from "three";
+import * as THREE from "three";
 import React, { useState } from "react";
-import { useFrame } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
 import {
   softShadows,
   Text3D,
@@ -11,6 +11,7 @@ import {
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
 
+extend(THREE);
 softShadows();
 
 interface SceneProps {
@@ -19,7 +20,7 @@ interface SceneProps {
 }
 
 function Intro() {
-  const [vec] = useState(() => new Vector3());
+  const [vec] = useState(() => new THREE.Vector3());
   return useFrame((state) => {
     state.camera.position.lerp(
       vec.set(state.pointer.x * 5, 3 + state.pointer.y * 2, 14),
