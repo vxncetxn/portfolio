@@ -32,7 +32,13 @@ export function Anchor({
         {children}
       </a>
       {previewOpen ? (
-        <div className="absolute left-1/2 -top-200 -translate-x-1/2 -translate-y-16 bg-white h-200 aspect-video rounded-8 shadow-2xl"></div>
+        <div className="absolute left-1/2 -top-200 -translate-x-1/2 -translate-y-16 bg-white h-200 aspect-video rounded-8 shadow-2xl p-4">
+          <img
+            src="/meta-image.jpg"
+            alt="test"
+            className="w-full h-full rounded-4"
+          />
+        </div>
       ) : null}
     </span>
   );
