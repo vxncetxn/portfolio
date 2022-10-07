@@ -40,14 +40,14 @@ export function Scene({ theme, color }: SceneProps) {
       ) : (
         <fog attach="fog" args={["#1c1c1c", 0, 40]} />
       )}
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.4} />
       <directionalLight
         castShadow={selectedTheme === "light"}
-        position={[2.5, 8, 5]}
-        intensity={1.5}
+        position={[12, 8, 14]}
+        intensity={2.2}
         shadow-mapSize-width={512}
         shadow-mapSize-height={512}
-        shadow-camera-far={50}
+        shadow-camera-far={70}
         shadow-camera-left={-20}
         shadow-camera-right={20}
         shadow-camera-top={20}
