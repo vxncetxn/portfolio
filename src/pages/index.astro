@@ -1,6 +1,7 @@
 ---
 import "../base.css";
-import { Canvas } from "../components/Canvas";
+// import { Canvas } from "../components/Canvas";
+import { CanvasControlFlow } from "../components/CanvasControlFlow";
 import { ThemeTool } from "../components/ThemeTool";
 import { ColorTool } from "../components/ColorTool";
 import Content from "../components/Content.astro";
@@ -75,7 +76,8 @@ import Content from "../components/Content.astro";
   </head>
   <body class="bg-neutral-01 transition-colors">
     <main class="w-screen h-screen">
-      <Canvas client:only="react" />
+      <!-- <Canvas client:only="react" /> -->
+      <CanvasControlFlow client:only="react" />
       <div class="absolute right-120 top-64 flex">
         <ThemeTool client:only="react" />
         <ColorTool client:only="react" />

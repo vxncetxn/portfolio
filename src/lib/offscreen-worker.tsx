@@ -1,14 +1,12 @@
 // @ts-nocheck
 import React from "react";
 import * as Comlink from "comlink";
-import * as THREE from "three";
 import { extend, createRoot, events } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { initTransferHandler } from "../lib/event.transferhandler";
 import { observable } from "@legendapp/state";
 
 initTransferHandler();
-extend(THREE);
 
 let root;
 let savedCanvas;
