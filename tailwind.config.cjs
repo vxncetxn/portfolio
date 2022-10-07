@@ -61,12 +61,14 @@ module.exports = {
       none: "0",
       8: "0.5rem",
       16: "1rem",
+      full: "50%",
     },
     extend: {
       colors: {
         "neutral-01": "var(--color-neutral-01)",
         "neutral-02": "var(--color-neutral-02)",
         "neutral-03": "var(--color-neutral-03)",
+        "theme-selected": "var(--color-theme-selected)",
       },
     },
   },

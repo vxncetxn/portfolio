@@ -51,7 +51,7 @@ export function Scene({ theme }: SceneProps) {
         shadow-camera-top={20}
         shadow-camera-bottom={-20}
       />
-      <pointLight position={[-10, 0, -20]} color="red" intensity={2.0} />
+      <pointLight position={[-10, 0, -20]} color="#34fdaa" intensity={2.0} />
       <Text3D
         font="/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
@@ -71,7 +71,7 @@ export function Scene({ theme }: SceneProps) {
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />
         {selectedTheme === "light" ? (
-          <shadowMaterial attach="material" color="red" opacity={0.4} />
+          <shadowMaterial attach="material" color="#34fdaa" opacity={0.4} />
         ) : (
           <MeshReflectorMaterial
             blur={[300, 100]}

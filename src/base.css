@@ -18,6 +18,9 @@
   --color-neutral-01: #ffffff;
   --color-neutral-02: #100a0a;
   --color-neutral-03: #f5f5f5;
+  --color-theme-01: #34fdaa;
+  --color-theme-02: #fa1c41;
+  --color-theme-selected: var(--color-theme-01);
 }
 
 [theme="dark"] {
