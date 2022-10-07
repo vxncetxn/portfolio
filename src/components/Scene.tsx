@@ -40,7 +40,7 @@ export function Scene({ theme, color }: SceneProps) {
       ) : (
         <fog attach="fog" args={["#1c1c1c", 0, 40]} />
       )}
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.2} />
       <directionalLight
         castShadow={selectedTheme === "light"}
         position={[2.5, 8, 5]}
