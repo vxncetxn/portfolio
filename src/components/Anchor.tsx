@@ -1,13 +1,13 @@
 interface AnchorProps {
   href: string;
-  font?: "primary" | "secondary";
+  font?: "sans" | "serif";
   size?: "small" | "base" | "large";
   children: React.ReactNode;
 }
 
 export function Anchor({
   href,
-  font = "secondary",
+  font = "serif",
   size = "base",
   children,
 }: AnchorProps) {
@@ -16,7 +16,7 @@ export function Anchor({
       href={href}
       target="_blank"
       rel="noopener"
-      className={`${font === "primary" ? "font-primary" : "font-secondary"} ${
+      className={`${font === "sans" ? "font-sans" : "font-serif"} ${
         size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
       } text-neutral-02 underline transition-colors`}
     >

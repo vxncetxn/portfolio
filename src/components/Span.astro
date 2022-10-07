@@ -1,15 +1,13 @@
 ---
 export interface Props {
-  font?: "primary" | "secondary";
+  font?: "sans" | "serif";
   size?: "small" | "base" | "large";
 }
-const { font = "secondary", size = "base" } = Astro.props as Props;
+const { font = "serif", size = "base" } = Astro.props as Props;
 ---
 
 <span
-  class={`inline-block ${
-    font === "primary" ? "font-primary" : "font-secondary"
-  } ${
+  class={`inline-block ${font === "sans" ? "font-sans" : "font-serif"} ${
     size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
   } text-neutral-02 capsize transition-colors`}
 >

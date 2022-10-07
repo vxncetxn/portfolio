@@ -5,18 +5,18 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      primary: ["Neue Montreal", ...defaultTheme.fontFamily.sans],
-      secondary: ["Cirka", ...defaultTheme.fontFamily.serif],
+      sans: ["Neue Montreal", ...defaultTheme.fontFamily.sans],
+      serif: ["Cirka", ...defaultTheme.fontFamily.serif],
     },
     fontMetrics: {
-      primary: {
+      sans: {
         capHeight: 715,
         ascent: 958,
         descent: -242,
         lineGap: 0,
         unitsPerEm: 1000,
       },
-      secondary: {
+      serif: {
         capHeight: 637,
         ascent: 640,
         descent: -200,

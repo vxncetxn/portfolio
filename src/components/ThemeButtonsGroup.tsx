@@ -55,7 +55,7 @@ export function ThemeButtonsGroup() {
       {options.map((option) => (
         <button
           onClick={() => selectedOption.set(option)}
-          className="relative flex-1 font-primary text-18 text-neutral-02 capsize py-12 transition-colors"
+          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors"
         >
           {option}
         </button>

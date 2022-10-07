@@ -7,7 +7,6 @@ import {
   Text3D,
   MeshReflectorMaterial,
   BakeShadows,
-  PerformanceMonitor,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
@@ -91,7 +90,6 @@ export function Scene({ theme }: SceneProps) {
       </mesh>
       <BakeShadows />
       <Intro />
-      <PerformanceMonitor onChange={(api) => console.log(api)} />
     </>
   );
 }
