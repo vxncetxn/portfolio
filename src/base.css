@@ -17,16 +17,19 @@
 :root {
   --color-neutral-01: #ffffff;
   --color-neutral-02: #100a0a;
+  --color-neutral-03: #f5f5f5;
 }
 
 [theme="dark"] {
   --color-neutral-01: #100a0a;
   --color-neutral-02: #ffffff;
+  --color-neutral-03: #262626;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-neutral-01: #100a0a;
     --color-neutral-02: #ffffff;
+    --color-neutral-03: #262626;
   }
 }

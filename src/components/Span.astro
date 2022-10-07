@@ -11,7 +11,7 @@ const { font = "secondary", size = "base" } = Astro.props as Props;
     font === "primary" ? "font-primary" : "font-secondary"
   } ${
     size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
-  } text-neutral-02 capsize`}
+  } text-neutral-02 capsize transition-colors`}
 >
   <slot />
 </span>

@@ -2,6 +2,7 @@
 import "../base.css";
 import { Canvas } from "../components/Canvas";
 import { TempThemeSelect } from "../components/TempThemeSelect";
+import { ThemeButtonsGroup } from "../components/ThemeButtonsGroup";
 import Content from "../components/Content.astro";
 ---
 
@@ -41,10 +42,11 @@ import Content from "../components/Content.astro";
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-neutral-01">
+  <body class="bg-neutral-01 transition-colors">
     <main class="w-screen h-screen">
       <Canvas client:only="react" />
-      <TempThemeSelect client:idle />
+      <!-- <TempThemeSelect client:idle /> -->
+      <ThemeButtonsGroup client:only="react" />
       <Content />
     </main>
   </body>

@@ -15,7 +15,7 @@ export function Text({
     <p
       className={`${font === "primary" ? "font-primary" : "font-secondary"} ${
         size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
-      } text-neutral-02 capsize ${className}`}
+      } text-neutral-02 capsize transition-colors ${className}`}
     >
       {children}
     </p>

@@ -57,10 +57,16 @@ module.exports = {
       320: "20rem",
       360: "22.5rem",
     },
+    borderRadius: {
+      none: "0",
+      8: "0.5rem",
+      16: "1rem",
+    },
     extend: {
       colors: {
         "neutral-01": "var(--color-neutral-01)",
         "neutral-02": "var(--color-neutral-02)",
+        "neutral-03": "var(--color-neutral-03)",
       },
     },
   },
