@@ -6,7 +6,7 @@ export function ColorTool() {
 
   return (
     <div className="relative ml-16 h-[55.5px] aspect-square border-8 border-neutral-03 rounded-full overflow-hidden transition-colors focus-within:outline-none focus-within:shadow-2xl focus-within:shadow-theme-selected focus-within:border-neutral-04">
-      <label>
+      <label className="cursor-pointer">
         <div className="w-full h-full bg-theme-selected"></div>
         <input
           type="color"

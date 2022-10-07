@@ -13,6 +13,7 @@ extend(THREE);
 let root;
 let savedCanvas;
 const theme = observable("light");
+const color = observable("#34fdaa");
 
 const api = {
   init(props) {
@@ -26,7 +27,7 @@ const api = {
       dpr: 1,
       size: dimensions,
     });
-    root.render(<Scene theme={theme} />);
+    root.render(<Scene theme={theme} color={color} />);
   },
   onPointerMove(ev) {
     let customEv = new CustomEvent("pointermove");
@@ -43,10 +44,13 @@ const api = {
       dpr: 1,
       size: { width: window.innerWidth, height: window.innerHeight },
     });
-    root.render(<Scene theme={theme} />);
+    root.render(<Scene theme={theme} color={color} />);
   },
   onChangeTheme(ev) {
     theme.set(ev.theme);
+  },
+  onChangeColor(ev) {
+    color.set(ev.color);
   },
 };
 

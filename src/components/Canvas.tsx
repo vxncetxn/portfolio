@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { extend, createRoot, events } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { theme } from "../state/theme";
+import { color } from "../state/color";
 import OffscreenWorker from "../lib/offscreen-worker?worker";
 import * as Comlink from "comlink";
 import { initTransferHandler } from "../lib/event.transferhandler";
@@ -39,6 +40,7 @@ export function Canvas() {
           api.onPointerMove.bind(api)
         );
         window.addEventListener("changetheme", api.onChangeTheme.bind(api));
+        window.addEventListener("changecolor", api.onChangeColor.bind(api));
 
         let customEv = new CustomEvent("changetheme");
         customEv["theme"] = theme.get();
@@ -79,7 +81,7 @@ export function Canvas() {
               updateStyle: false,
             },
           });
-          root.render(<Scene theme={theme} />);
+          root.render(<Scene theme={theme} color={color} />);
         });
         window.dispatchEvent(new Event("resize"));
       }
