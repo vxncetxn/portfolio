@@ -4,7 +4,18 @@ import { theme } from "../state/theme";
 
 const options = ["Light", "Dark", "System"];
 
-const selectedOption = observable("System");
+const selectedOption = observable(
+  (() => {
+    const storedTheme = window.localStorage.getItem("theme");
+    if (storedTheme === "light") {
+      return "Light";
+    } else if (storedTheme === "dark") {
+      return "Dark";
+    } else {
+      return "System";
+    }
+  })()
+);
 selectedOption.onChange((value) => {
   switch (value) {
     case "Light":
