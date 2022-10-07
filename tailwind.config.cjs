@@ -59,6 +59,8 @@ module.exports = {
     },
     borderRadius: {
       none: "0",
+      2: "0.125rem",
+      4: "0.25rem",
       8: "0.5rem",
       16: "1rem",
       full: "50%",
@@ -68,6 +70,7 @@ module.exports = {
         "neutral-01": "var(--color-neutral-01)",
         "neutral-02": "var(--color-neutral-02)",
         "neutral-03": "var(--color-neutral-03)",
+        "neutral-04": "var(--color-neutral-04)",
         "theme-selected": "var(--color-theme-selected)",
       },
     },

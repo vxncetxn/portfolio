@@ -46,16 +46,16 @@ export function ThemeTool() {
       <div
         className={
           $selectedOption === "Light"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-0"
+            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-0 focus:outline-none"
             : $selectedOption === "Dark"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-full"
-            : "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-[200%]"
+            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-full focus:outline-none"
+            : "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-[200%] focus:outline-none"
         }
       ></div>
       {options.map((option) => (
         <button
           onClick={() => selectedOption.set(option)}
-          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors"
+          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors rounded-8 focus:outline-none focus:ring focus:ring-theme-selected focus:ring-offset-2 focus:ring-offset-transparent"
         >
           {option}
         </button>
