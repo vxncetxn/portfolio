@@ -1,8 +1,8 @@
 ---
 import "../base.css";
 import { Canvas } from "../components/Canvas";
-import { TempThemeSelect } from "../components/TempThemeSelect";
-import { ThemeButtonsGroup } from "../components/ThemeButtonsGroup";
+import { ThemeTool } from "../components/ThemeTool";
+import { ColorTool } from "../components/ColorTool";
 import Content from "../components/Content.astro";
 ---
 
@@ -45,8 +45,10 @@ import Content from "../components/Content.astro";
   <body class="bg-neutral-01 transition-colors">
     <main class="w-screen h-screen">
       <Canvas client:only="react" />
-      <!-- <TempThemeSelect client:idle /> -->
-      <ThemeButtonsGroup client:only="react" />
+      <div class="absolute right-120 top-64 flex">
+        <ThemeTool client:only="react" />
+        <ColorTool client:only="react" />
+      </div>
       <Content />
     </main>
   </body>
