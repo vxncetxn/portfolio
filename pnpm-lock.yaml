@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   three@0.145.0:
-    hash: ejlfix4k3qbn6symkbdtc7ch7q
+    hash: ey7venc22uhrxeei5qhoygtwi4
     path: patches/three@0.145.0.patch
   three-stdlib@2.17.0:
     hash: ovmagaluhuom6nx7tmkko3qbmq
@@ -42,7 +42,7 @@ dependencies:
   comlink: 4.3.1
   cross-fetch: 3.1.5
   swr: 1.3.0_react@18.2.0
-  three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+  three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
 
 devDependencies:
   '@astrojs/react': 1.1.4_biqbaboplfbrettd7655fr4n2y
@@ -626,7 +626,7 @@ packages:
       '@react-spring/types': 9.5.5
       '@react-three/fiber': 8.8.8_ee34sidbpuk5ebd4phepfgxxdi
       react: 18.2.0
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
     dev: false
 
   /@react-spring/types/9.5.5:
@@ -660,7 +660,7 @@ packages:
       react-merge-refs: 1.1.0
       stats.js: 0.17.0
       suspend-react: 0.0.8_react@18.2.0
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
       three-mesh-bvh: 0.5.16_three@0.145.0
       three-stdlib: 2.17.0_ovmagaluhuom6nx7tmkko3qbmq_three@0.145.0
       troika-three-text: 0.46.4_three@0.145.0
@@ -700,7 +700,7 @@ packages:
       react-use-measure: 2.1.1_biqbaboplfbrettd7655fr4n2y
       scheduler: 0.21.0
       suspend-react: 0.0.8_react@18.2.0
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
       zustand: 3.7.2_react@18.2.0
     dev: false
 
@@ -2410,7 +2410,7 @@ packages:
     peerDependencies:
       three: '>=0.137'
     dependencies:
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
     dev: false
 
   /micromark-core-commonmark/1.0.6:
@@ -3712,7 +3712,7 @@ packages:
     peerDependencies:
       three: '>= 0.123.0'
     dependencies:
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
     dev: false
 
   /three-stdlib/2.17.0_ovmagaluhuom6nx7tmkko3qbmq_three@0.145.0:
@@ -3730,12 +3730,12 @@ packages:
       mmd-parser: 1.0.4
       opentype.js: 1.3.4
       potpack: 1.0.2
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
       zstddec: 0.0.2
     dev: false
     patched: true
 
-  /three/0.145.0_ejlfix4k3qbn6symkbdtc7ch7q:
+  /three/0.145.0_ey7venc22uhrxeei5qhoygtwi4:
     resolution: {integrity: sha512-EKoHQEtEJ4CB6b2BGMBgLZrfwLjXcSUfoI/MiIXUuRpeYsfK5aPWbYhdtIVWOH+x6X0TouldHKHBuc/LAiFzAw==}
     dev: false
     patched: true
@@ -3789,7 +3789,7 @@ packages:
       three: '>=0.103.0'
     dependencies:
       bidi-js: 1.0.2
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
       troika-three-utils: 0.46.0_three@0.145.0
       troika-worker-utils: 0.46.0
       webgl-sdf-generator: 1.1.1
@@ -3800,7 +3800,7 @@ packages:
     peerDependencies:
       three: '>=0.103.0'
     dependencies:
-      three: 0.145.0_ejlfix4k3qbn6symkbdtc7ch7q
+      three: 0.145.0_ey7venc22uhrxeei5qhoygtwi4
     dev: false
 
   /troika-worker-utils/0.46.0:
