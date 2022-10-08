@@ -3,7 +3,7 @@ import * as THREE from "three";
 import React, { useState } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import {
-  softShadows,
+  // softShadows,
   Text3D,
   MeshReflectorMaterial,
   BakeShadows,
@@ -12,7 +12,7 @@ import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
 
 extend(THREE);
-softShadows();
+// softShadows();
 
 interface SceneProps {
   theme: ObservablePrimitive<string>;

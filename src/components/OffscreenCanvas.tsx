@@ -1,7 +1,10 @@
 // @ts-nocheck
 import { useRef, useEffect } from "react";
 import { theme } from "../state/theme";
-import OffscreenWorker from "../lib/offscreen-worker?worker";
+// import OffscreenWorker from "../lib/offscreen-worker?worker";
+const worker = new Worker(new URL("../lib/offscreen-worker", import.meta.url), {
+  type: "module",
+});
 import * as Comlink from "comlink";
 import { initTransferHandler } from "../lib/event.transferhandler";
 
@@ -26,7 +29,7 @@ export default function OffscreenCanvas() {
       const canvas = canvasRef.current;
 
       const offscreen = canvas.transferControlToOffscreen();
-      const worker = new OffscreenWorker();
+      // const worker = new OffscreenWorker();
       const api = Comlink.wrap(worker);
 
       canvas.addEventListener(
