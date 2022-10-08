@@ -79715,7 +79715,7 @@ index 336f55bd848ad9ca890d0389ea85135d85dc0de0..ce1794b550a98786517593bd89b0ba82
  
  
 diff --git a/src/Three.js b/src/Three.js
-index 372352c7f91e24fc37a9044852f46f33675098a5..f751911b698a8f0400d79785f2b925b022eca550 100644
+index 372352c7f91e24fc37a9044852f46f33675098a5..1d1c55038d9923f02ac9323ef116096dbb2da64b 100644
 --- a/src/Three.js
 +++ b/src/Three.js
 @@ -1,161 +1,174 @@
@@ -79735,13 +79735,12 @@ index 372352c7f91e24fc37a9044852f46f33675098a5..f751911b698a8f0400d79785f2b925b0
 -export { ShaderLib } from './renderers/shaders/ShaderLib.js';
 -export { UniformsLib } from './renderers/shaders/UniformsLib.js';
 -export { UniformsUtils } from './renderers/shaders/UniformsUtils.js';
--export { ShaderChunk } from './renderers/shaders/ShaderChunk.js';
--export { FogExp2 } from './scenes/FogExp2.js';
 +// export { WebGL1Renderer } from './renderers/WebGL1Renderer.js';
 +// export { ShaderLib } from './renderers/shaders/ShaderLib.js';
 +// export { UniformsLib } from './renderers/shaders/UniformsLib.js';
 +// export { UniformsUtils } from './renderers/shaders/UniformsUtils.js';
-+// export { ShaderChunk } from './renderers/shaders/ShaderChunk.js';
+ export { ShaderChunk } from './renderers/shaders/ShaderChunk.js';
+-export { FogExp2 } from './scenes/FogExp2.js';
 +// export { FogExp2 } from './scenes/FogExp2.js';
  export { Fog } from './scenes/Fog.js';
  export { Scene } from './scenes/Scene.js';
@@ -80025,3 +80024,201 @@ index 372352c7f91e24fc37a9044852f46f33675098a5..f751911b698a8f0400d79785f2b925b0
  
  if ( typeof __THREE_DEVTOOLS__ !== 'undefined' ) {
  
+diff --git a/src/extras/curves/Curves.js b/src/extras/curves/Curves.js
+index c984a853942011a89bcd2add1be38392c751a639..889f3dd70382b1a3a7440d68dfe2c8a7ed7d1dae 100644
+--- a/src/extras/curves/Curves.js
++++ b/src/extras/curves/Curves.js
+@@ -1,10 +1,10 @@
+-export { ArcCurve } from './ArcCurve.js';
+-export { CatmullRomCurve3 } from './CatmullRomCurve3.js';
+-export { CubicBezierCurve } from './CubicBezierCurve.js';
+-export { CubicBezierCurve3 } from './CubicBezierCurve3.js';
+-export { EllipseCurve } from './EllipseCurve.js';
+-export { LineCurve } from './LineCurve.js';
+-export { LineCurve3 } from './LineCurve3.js';
+-export { QuadraticBezierCurve } from './QuadraticBezierCurve.js';
+-export { QuadraticBezierCurve3 } from './QuadraticBezierCurve3.js';
+-export { SplineCurve } from './SplineCurve.js';
++// export { ArcCurve } from './ArcCurve.js';
++// export { CatmullRomCurve3 } from './CatmullRomCurve3.js';
++// export { CubicBezierCurve } from './CubicBezierCurve.js';
++// export { CubicBezierCurve3 } from './CubicBezierCurve3.js';
++// export { EllipseCurve } from './EllipseCurve.js';
++// export { LineCurve } from './LineCurve.js';
++// export { LineCurve3 } from './LineCurve3.js';
++// export { QuadraticBezierCurve } from './QuadraticBezierCurve.js';
++// export { QuadraticBezierCurve3 } from './QuadraticBezierCurve3.js';
++// export { SplineCurve } from './SplineCurve.js';
+diff --git a/src/materials/Materials.js b/src/materials/Materials.js
+index 3497fac568b1825d1a5c35b6fa60f491c849d9a0..f243e07916b58fbad65fd1b7481c17dc12705f91 100644
+--- a/src/materials/Materials.js
++++ b/src/materials/Materials.js
+@@ -1,39 +1,39 @@
+ import { ShadowMaterial } from './ShadowMaterial.js';
+-import { SpriteMaterial } from './SpriteMaterial.js';
+-import { RawShaderMaterial } from './RawShaderMaterial.js';
++// import { SpriteMaterial } from './SpriteMaterial.js';
++// import { RawShaderMaterial } from './RawShaderMaterial.js';
+ import { ShaderMaterial } from './ShaderMaterial.js';
+-import { PointsMaterial } from './PointsMaterial.js';
+-import { MeshPhysicalMaterial } from './MeshPhysicalMaterial.js';
++// import { PointsMaterial } from './PointsMaterial.js';
++// import { MeshPhysicalMaterial } from './MeshPhysicalMaterial.js';
+ import { MeshStandardMaterial } from './MeshStandardMaterial.js';
+-import { MeshPhongMaterial } from './MeshPhongMaterial.js';
+-import { MeshToonMaterial } from './MeshToonMaterial.js';
+-import { MeshNormalMaterial } from './MeshNormalMaterial.js';
++// import { MeshPhongMaterial } from './MeshPhongMaterial.js';
++// import { MeshToonMaterial } from './MeshToonMaterial.js';
++// import { MeshNormalMaterial } from './MeshNormalMaterial.js';
+ import { MeshLambertMaterial } from './MeshLambertMaterial.js';
+-import { MeshDepthMaterial } from './MeshDepthMaterial.js';
+-import { MeshDistanceMaterial } from './MeshDistanceMaterial.js';
+-import { MeshBasicMaterial } from './MeshBasicMaterial.js';
+-import { MeshMatcapMaterial } from './MeshMatcapMaterial.js';
+-import { LineDashedMaterial } from './LineDashedMaterial.js';
+-import { LineBasicMaterial } from './LineBasicMaterial.js';
++// import { MeshDepthMaterial } from './MeshDepthMaterial.js';
++// import { MeshDistanceMaterial } from './MeshDistanceMaterial.js';
++// import { MeshBasicMaterial } from './MeshBasicMaterial.js';
++// import { MeshMatcapMaterial } from './MeshMatcapMaterial.js';
++// import { LineDashedMaterial } from './LineDashedMaterial.js';
++// import { LineBasicMaterial } from './LineBasicMaterial.js';
+ import { Material } from './Material.js';
+ 
+ export {
+ 	ShadowMaterial,
+-	SpriteMaterial,
+-	RawShaderMaterial,
++// 	SpriteMaterial,
++// 	RawShaderMaterial,
+ 	ShaderMaterial,
+-	PointsMaterial,
+-	MeshPhysicalMaterial,
++// 	PointsMaterial,
++// 	MeshPhysicalMaterial,
+ 	MeshStandardMaterial,
+-	MeshPhongMaterial,
+-	MeshToonMaterial,
+-	MeshNormalMaterial,
++// 	MeshPhongMaterial,
++// 	MeshToonMaterial,
++// 	MeshNormalMaterial,
+ 	MeshLambertMaterial,
+-	MeshDepthMaterial,
+-	MeshDistanceMaterial,
+-	MeshBasicMaterial,
+-	MeshMatcapMaterial,
+-	LineDashedMaterial,
+-	LineBasicMaterial,
++// 	MeshDepthMaterial,
++// 	MeshDistanceMaterial,
++// 	MeshBasicMaterial,
++// 	MeshMatcapMaterial,
++// 	LineDashedMaterial,
++// 	LineBasicMaterial,
+ 	Material
+ };
+diff --git a/src/renderers/shaders/ShaderChunk.js b/src/renderers/shaders/ShaderChunk.js
+index d5722f72aac85b564f5f0f326d19631af7677922..809c3497d8e580f906ba5bcff21d1b3e5634fc53 100644
+--- a/src/renderers/shaders/ShaderChunk.js
++++ b/src/renderers/shaders/ShaderChunk.js
+@@ -105,22 +105,22 @@ import uv2_pars_vertex from './ShaderChunk/uv2_pars_vertex.glsl.js';
+ import uv2_vertex from './ShaderChunk/uv2_vertex.glsl.js';
+ import worldpos_vertex from './ShaderChunk/worldpos_vertex.glsl.js';
+ 
+-import * as background from './ShaderLib/background.glsl.js';
+-import * as cube from './ShaderLib/cube.glsl.js';
++// import * as background from './ShaderLib/background.glsl.js';
++// import * as cube from './ShaderLib/cube.glsl.js';
+ import * as depth from './ShaderLib/depth.glsl.js';
+-import * as distanceRGBA from './ShaderLib/distanceRGBA.glsl.js';
+-import * as equirect from './ShaderLib/equirect.glsl.js';
+-import * as linedashed from './ShaderLib/linedashed.glsl.js';
+-import * as meshbasic from './ShaderLib/meshbasic.glsl.js';
+-import * as meshlambert from './ShaderLib/meshlambert.glsl.js';
+-import * as meshmatcap from './ShaderLib/meshmatcap.glsl.js';
+-import * as meshnormal from './ShaderLib/meshnormal.glsl.js';
+-import * as meshphong from './ShaderLib/meshphong.glsl.js';
++// import * as distanceRGBA from './ShaderLib/distanceRGBA.glsl.js';
++// import * as equirect from './ShaderLib/equirect.glsl.js';
++// import * as linedashed from './ShaderLib/linedashed.glsl.js';
++// import * as meshbasic from './ShaderLib/meshbasic.glsl.js';
++// import * as meshlambert from './ShaderLib/meshlambert.glsl.js';
++// import * as meshmatcap from './ShaderLib/meshmatcap.glsl.js';
++// import * as meshnormal from './ShaderLib/meshnormal.glsl.js';
++// import * as meshphong from './ShaderLib/meshphong.glsl.js';
+ import * as meshphysical from './ShaderLib/meshphysical.glsl.js';
+-import * as meshtoon from './ShaderLib/meshtoon.glsl.js';
+-import * as points from './ShaderLib/points.glsl.js';
++// import * as meshtoon from './ShaderLib/meshtoon.glsl.js';
++// import * as points from './ShaderLib/points.glsl.js';
+ import * as shadow from './ShaderLib/shadow.glsl.js';
+-import * as sprite from './ShaderLib/sprite.glsl.js';
++// import * as sprite from './ShaderLib/sprite.glsl.js';
+ 
+ export const ShaderChunk = {
+ 	alphamap_fragment: alphamap_fragment,
+@@ -230,36 +230,36 @@ export const ShaderChunk = {
+ 	uv2_vertex: uv2_vertex,
+ 	worldpos_vertex: worldpos_vertex,
+ 
+-	background_vert: background.vertex,
+-	background_frag: background.fragment,
+-	cube_vert: cube.vertex,
+-	cube_frag: cube.fragment,
++	// background_vert: background.vertex,
++	// background_frag: background.fragment,
++	// cube_vert: cube.vertex,
++	// cube_frag: cube.fragment,
+ 	depth_vert: depth.vertex,
+ 	depth_frag: depth.fragment,
+-	distanceRGBA_vert: distanceRGBA.vertex,
+-	distanceRGBA_frag: distanceRGBA.fragment,
+-	equirect_vert: equirect.vertex,
+-	equirect_frag: equirect.fragment,
+-	linedashed_vert: linedashed.vertex,
+-	linedashed_frag: linedashed.fragment,
+-	meshbasic_vert: meshbasic.vertex,
+-	meshbasic_frag: meshbasic.fragment,
+-	meshlambert_vert: meshlambert.vertex,
+-	meshlambert_frag: meshlambert.fragment,
+-	meshmatcap_vert: meshmatcap.vertex,
+-	meshmatcap_frag: meshmatcap.fragment,
+-	meshnormal_vert: meshnormal.vertex,
+-	meshnormal_frag: meshnormal.fragment,
+-	meshphong_vert: meshphong.vertex,
+-	meshphong_frag: meshphong.fragment,
++	// distanceRGBA_vert: distanceRGBA.vertex,
++	// distanceRGBA_frag: distanceRGBA.fragment,
++	// equirect_vert: equirect.vertex,
++	// equirect_frag: equirect.fragment,
++	// linedashed_vert: linedashed.vertex,
++	// linedashed_frag: linedashed.fragment,
++	// meshbasic_vert: meshbasic.vertex,
++	// meshbasic_frag: meshbasic.fragment,
++	// meshlambert_vert: meshlambert.vertex,
++	// meshlambert_frag: meshlambert.fragment,
++	// meshmatcap_vert: meshmatcap.vertex,
++	// meshmatcap_frag: meshmatcap.fragment,
++	// meshnormal_vert: meshnormal.vertex,
++	// meshnormal_frag: meshnormal.fragment,
++	// meshphong_vert: meshphong.vertex,
++	// meshphong_frag: meshphong.fragment,
+ 	meshphysical_vert: meshphysical.vertex,
+ 	meshphysical_frag: meshphysical.fragment,
+-	meshtoon_vert: meshtoon.vertex,
+-	meshtoon_frag: meshtoon.fragment,
+-	points_vert: points.vertex,
+-	points_frag: points.fragment,
++	// meshtoon_vert: meshtoon.vertex,
++	// meshtoon_frag: meshtoon.fragment,
++	// points_vert: points.vertex,
++	// points_frag: points.fragment,
+ 	shadow_vert: shadow.vertex,
+ 	shadow_frag: shadow.fragment,
+-	sprite_vert: sprite.vertex,
+-	sprite_frag: sprite.fragment
++	// sprite_vert: sprite.vertex,
++	// sprite_frag: sprite.fragment
+ };

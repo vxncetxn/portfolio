@@ -3,7 +3,7 @@ import * as THREE from "three";
 import React, { useState } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import {
-  // softShadows,
+  softShadows,
   Text3D,
   MeshReflectorMaterial,
   BakeShadows,
@@ -12,7 +12,7 @@ import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
 
 extend(THREE);
-// softShadows();
+softShadows();
 
 interface SceneProps {
   theme: ObservablePrimitive<string>;
@@ -69,7 +69,7 @@ export function Scene({ theme, color }: SceneProps) {
         rotation={[0, 0.1, 0]}
       >
         vxn
-        <meshLambertMaterial />
+        <meshStandardMaterial />
       </Text3D>
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
