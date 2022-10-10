@@ -11,7 +11,7 @@ const path = require("path");
   fs.readdir(inputDir, (_, files) => {
     files.forEach((file) => {
       Image(`${inputDir}/${file}`, {
-        widths: [320, 640, 960, 1280],
+        widths: [360, 720, 1080, 1440],
         formats: ["avif", "webp", "jpeg"],
         outputDir,
         filenameFormat: (_, src, width, format) => {

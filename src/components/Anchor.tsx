@@ -35,30 +35,36 @@ export function Anchor({
       >
         {children}
       </a>
-      {previewOpen ? (
-        <div className="absolute left-1/2 -top-200 -translate-x-1/2 -translate-y-16 bg-white w-320 aspect-video rounded-8 shadow-2xl p-4">
+      {img ? (
+        <div
+          className={`absolute left-1/2 -top-200 -translate-x-1/2 bg-neutral-01 w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
+            previewOpen
+              ? "opacity-1 -translate-y-20"
+              : "opacity-0 translate-y-40"
+          }`}
+        >
           <picture>
             <source
               type="image/avif"
-              srcSet={`/images/${img}-320w.avif 320w, /images/${img}-640w.avif 640w, /images/${img}-960w.avif 960w, /images/${img}-1280w.avif 1280w`}
-              sizes="320px"
+              srcSet={`/images/${img}-360w.avif 360w, /images/${img}-720w.avif 720w, /images/${img}-1080w.avif 1080w, /images/${img}-1440w.avif 1440w`}
+              sizes="360px"
             />
             <source
               type="image/webp"
-              srcSet={`/images/${img}-320w.webp 320w, /images/${img}-640w.webp 640w, /images/${img}-960w.webp 960w, /images/${img}-1280w.webp 1280w`}
-              sizes="320px"
+              srcSet={`/images/${img}-360w.webp 360w, /images/${img}-720w.webp 720w, /images/${img}-1080w.webp 1080w, /images/${img}-1440w.webp 1440w`}
+              sizes="360px"
             />
             <source
               type="image/jpeg"
-              srcSet={`/images/${img}-320w.jpeg 320w, /images/${img}-640w.jpeg 640w, /images/${img}-960w.jpeg 960w, /images/${img}-1280w.jpeg 1280w`}
-              sizes="320px"
+              srcSet={`/images/${img}-360w.jpeg 360w, /images/${img}-720w.jpeg 720w, /images/${img}-1080w.jpeg 1080w, /images/${img}-1440w.jpeg 1440w`}
+              sizes="360px"
             />
             <img
-              src={`/images/${img}-320w.jpeg`}
+              src={`/images/${img}-360w.jpeg`}
               alt={imgAlt}
               loading="lazy"
               decoding="async"
-              className="w-320 aspect-video object-cover"
+              className="w-360 aspect-video object-cover"
             />
           </picture>
         </div>
