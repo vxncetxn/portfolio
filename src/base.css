@@ -4,14 +4,14 @@
 
 @font-face {
   font-family: "Neue Montreal";
-  src: url("/PPNeueMontreal-Book.woff2") format("woff2"),
-    url("/PPNeueMontreal-Book.woff") format("woff");
+  src: url("/fonts/PPNeueMontreal-Book.woff2") format("woff2"),
+    url("/fonts/PPNeueMontreal-Book.woff") format("woff");
 }
 
 @font-face {
   font-family: "Cirka";
-  src: url("/PPCirka-Regular.woff2") format("woff2"),
-    url("/PPCirka-Regular.woff") format("woff");
+  src: url("/fonts/PPCirka-Regular.woff2") format("woff2"),
+    url("/fonts/PPCirka-Regular.woff") format("woff");
 }
 
 :root {
