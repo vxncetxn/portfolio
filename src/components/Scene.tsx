@@ -60,7 +60,7 @@ export function Scene({ theme, color }: SceneProps) {
         intensity={2.0}
       />
       <Text3D
-        font="/PPMonumentExtended_Bold_reduced.json"
+        font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
         size={4}

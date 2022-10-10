@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "generate-images": "node generate-images.js",
+    "dev": "pnpm generate-images && astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "pnpm generate-images && astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@11ty/eleventy-img": "^2.0.1",
     "@astrojs/react": "^1.1.4",
     "@astrojs/tailwind": "^1.0.0",
     "@types/three": "^0.144.0",

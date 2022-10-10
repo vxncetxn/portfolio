@@ -46,10 +46,10 @@ export function ThemeTool() {
       <div
         className={
           $selectedOption === "Light"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-0"
+            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-0"
             : $selectedOption === "Dark"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-full"
-            : "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition-all translate-x-[200%]"
+            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-full"
+            : "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-[200%]"
         }
       ></div>
       {options.map((option) => (
