@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# generated images
+public/images/
+
 # dependencies
 node_modules/
 
