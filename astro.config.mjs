@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,5 +15,6 @@ export default defineConfig({
     ssr: {
       noExternal: [],
     },
+    plugins: [visualizer()],
   },
 });
