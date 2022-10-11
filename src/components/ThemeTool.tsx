@@ -42,7 +42,7 @@ export function ThemeTool() {
   const $selectedOption = useSelector(() => selectedOption.get());
 
   return (
-    <div className="flex text-neutral-02 bg-neutral-03 w-240 rounded-16 px-8 py-8 transition-colors">
+    <div className="relative flex text-neutral-02 bg-neutral-03 w-240 rounded-16 px-8 py-8 transition-colors">
       <div
         className={
           $selectedOption === "Light"

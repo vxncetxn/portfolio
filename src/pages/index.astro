@@ -78,12 +78,14 @@ import Content from "../components/Content.astro";
     class="relative flex justify-center items-center bg-neutral-01 transition-colors w-screen h-screen"
   >
     <CanvasControlFlow client:only="react" />
-    <main class="relative w-screen h-screen max-w-[96rem] max-h-[67.5rem]">
-      <div class="absolute right-120 top-64 flex">
+    <main
+      class="flex items-start justify-between relative w-screen h-screen max-w-[96rem] max-h-[67.5rem] py-64 px-120"
+    >
+      <Content />
+      <div class="flex">
         <ThemeTool client:only="react" />
         <ColorTool client:only="react" />
       </div>
-      <Content />
     </main>
   </body>
 </html>
