@@ -57,11 +57,10 @@ export default function OffscreenCanvas() {
         )
       );
       window.addEventListener("resize", api.onResize.bind(api));
-      // window.dispatchEvent(new Event("resize"));
     }
 
     createRootFromCanvas();
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} className="absolute left-0 top-0" />;
 }
