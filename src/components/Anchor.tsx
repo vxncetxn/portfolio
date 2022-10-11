@@ -33,7 +33,11 @@ export function Anchor({
         target="_blank"
         rel="noopener"
         className={`${font === "sans" ? "font-sans" : "font-serif"} ${
-          size === "small" ? "text-18" : "base" ? "text-24" : "text-40"
+          size === "small"
+            ? "text-16 lg:text-18"
+            : "base"
+            ? "text-18 sm:text-20 lg:text-24"
+            : "text-28 sm:text-32 lg:text-40"
         } text-neutral-02 underline transition-colors selection:bg-theme-selected rounded-2 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
       >
         {children}
@@ -67,7 +71,7 @@ export function Anchor({
               alt={imgAlt}
               loading="lazy"
               decoding="async"
-              className="w-360 aspect-video object-cover"
+              className="object-cover w-360 aspect-video"
             />
           </picture>
           <div className="absolute right-16 bottom-16 flex items-center space-x-8 p-8 backdrop-blur-sm bg-[#100a0a]/30 rounded-8">
@@ -76,7 +80,7 @@ export function Anchor({
             </Text>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
+              viewBox="0 20"
               className="w-16 h-16 fill-white"
             >
               <path

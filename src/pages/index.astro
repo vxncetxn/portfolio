@@ -75,14 +75,16 @@ import Content from "../components/Content.astro";
     <link rel="icon" type="image/svg+xml" href="/meta/favicon.svg" />
   </head>
   <body
-    class="relative flex justify-center items-center bg-neutral-01 transition-colors w-screen h-screen"
+    class="relative flex items-center justify-center w-screen h-screen transition-colors bg-neutral-01"
   >
     <CanvasControlFlow client:only="react" />
     <main
-      class="flex items-start justify-between relative w-screen h-screen max-w-[96rem] max-h-[67.5rem] py-64 px-120"
+      class="relative flex items-start justify-between w-screen h-screen max-w-[96rem] max-h-[67.5rem] py-40 px-20 xl:px-120 border border-blue-500 xl:border-red-500 lg:border-green-500 md:border-purple-500 sm:border-white lg:px-80 md:px-48 sm:px-32 sm:py-48 lg:py-64"
     >
       <Content />
-      <div class="flex">
+      <div
+        class="absolute hidden h-32 lg:h-48 right-48 lg:right-64 top-48 lg:top-64 md:flex"
+      >
         <ThemeTool client:only="react" />
         <ColorTool client:only="react" />
       </div>
