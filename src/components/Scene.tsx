@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import * as THREE from "three";
 import React, { useState } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend, useFrame, useThree } from "@react-three/fiber";
 import {
   softShadows,
   Text3D,
@@ -19,6 +19,16 @@ interface SceneProps {
   color: ObservablePrimitive<string>;
 }
 
+function interpolate(rangeA, rangeB, resultA, resultB, value) {
+  return Math.max(
+    Math.min(
+      ((value - rangeA) / (rangeB - rangeA)) * (resultB - resultA) + resultA,
+      resultB
+    ),
+    resultA
+  );
+}
+
 function Intro() {
   const [vec] = useState(() => new THREE.Vector3());
   return useFrame((state) => {
@@ -33,6 +43,7 @@ function Intro() {
 export function Scene({ theme, color }: SceneProps) {
   const selectedTheme = useSelector(() => theme.get());
   const selectedColor = useSelector(() => color.get());
+  const { size } = useThree();
 
   return (
     <>
@@ -63,9 +74,13 @@ export function Scene({ theme, color }: SceneProps) {
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
-        size={4}
+        size={interpolate(320, 1024, 1.6, 4, size.width)}
         height={1}
-        position={[0, -5, 0]}
+        position={[
+          interpolate(320, 1024, -3.5, 0, size.width),
+          interpolate(320, 1024, -7, -5, size.width),
+          0,
+        ]}
         rotation={[0, 0.1, 0]}
       >
         vxn
@@ -73,7 +88,7 @@ export function Scene({ theme, color }: SceneProps) {
       </Text3D>
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -5, 0]}
+        position={[0, interpolate(320, 1024, -7, -5, size.width), 0]}
         receiveShadow={selectedTheme === "light"}
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />
