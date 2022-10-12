@@ -15,10 +15,10 @@ export function Text({
     <p
       className={`${font === "sans" ? "font-sans" : "font-serif"} ${
         size === "small"
-          ? "text-16 lg:text-18"
+          ? "text-14 xs:text-16 md:text-18"
           : "base"
-          ? "text-18 sm:text-20 lg:text-24"
-          : "text-28 sm:text-32 lg:text-40"
+          ? "text-16 xs:text-18 md:text-20 lg:text-24"
+          : "text-24 xs:text-28 md:text-32 lg:text-40"
       } text-neutral-02 capsize transition-colors selection:bg-theme-selected ${className}`}
     >
       {children}

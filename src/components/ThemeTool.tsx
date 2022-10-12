@@ -2,7 +2,7 @@ import { observable } from "@legendapp/state";
 import { useSelector } from "@legendapp/state/react";
 import { theme } from "../state/theme";
 
-const options = ["Light", "Dark", "System"];
+const options = ["Light", "Dark", "Auto"];
 
 const selectedOption = observable(
   (() => {
@@ -12,7 +12,7 @@ const selectedOption = observable(
     } else if (storedTheme === "dark") {
       return "Dark";
     } else {
-      return "System";
+      return "Auto";
     }
   })()
 );
@@ -42,7 +42,7 @@ export function ThemeTool() {
   const $selectedOption = useSelector(() => selectedOption.get());
 
   return (
-    <div className="relative flex items-center transition-colors text-neutral-02 bg-neutral-03 w-240 rounded-16">
+    <div className="relative flex items-center transition-colors text-neutral-02 bg-neutral-03 w-160 xs:w-200 md:w-240 rounded-16">
       <div
         className={
           $selectedOption === "Light"
@@ -55,7 +55,7 @@ export function ThemeTool() {
       {options.map((option) => (
         <button
           onClick={() => selectedOption.set(option)}
-          className="relative flex-1 h-full font-sans transition-colors text-16 lg:text-18 text-neutral-02 capsize rounded-8 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+          className="relative flex-1 h-full font-sans transition-colors text-14 xs:text-16 md:text-18 text-neutral-02 capsize rounded-8 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
         >
           {option}
         </button>

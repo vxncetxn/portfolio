@@ -65,6 +65,15 @@ module.exports = {
       16: "1rem",
       full: "50%",
     },
+    screens: {
+      xs: "375px",
+      ...defaultTheme.screens,
+    },
+    // screens: {
+    //   mobile: "375px",
+    //   tablet: "768px",
+    //   desktop: "1024px",
+    // },
     extend: {
       colors: {
         "neutral-01": "var(--color-neutral-01)",

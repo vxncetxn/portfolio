@@ -76,11 +76,7 @@ export function Scene({ theme, color }: SceneProps) {
         castShadow={selectedTheme === "light"}
         size={interpolate(320, 1024, 1.6, 4, size.width)}
         height={1}
-        position={[
-          interpolate(320, 1024, -3.5, 0, size.width),
-          interpolate(320, 1024, -7, -5, size.width),
-          0,
-        ]}
+        position={[interpolate(320, 1024, -3.5, 0, size.width), -5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn
@@ -88,7 +84,7 @@ export function Scene({ theme, color }: SceneProps) {
       </Text3D>
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, interpolate(320, 1024, -7, -5, size.width), 0]}
+        position={[0, -5, 0]}
         receiveShadow={selectedTheme === "light"}
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />

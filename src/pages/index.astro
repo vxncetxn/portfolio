@@ -79,15 +79,15 @@ import Content from "../components/Content.astro";
   >
     <CanvasControlFlow client:only="react" />
     <main
-      class="relative flex items-start justify-between w-screen h-screen max-w-[96rem] max-h-[67.5rem] py-40 px-20 xl:px-120 border border-blue-500 xl:border-red-500 lg:border-green-500 md:border-purple-500 sm:border-white lg:px-80 md:px-48 sm:px-32 sm:py-48 lg:py-64"
+      class="relative flex flex-col space-y-40 items-start justify-between w-screen h-screen max-w-[96rem] max-h-[67.5rem] py-40 px-16 xs:px-24 sm:px-32 md:px-48 lg:px-80 xl:px-120 border border-blue-500 xl:border-red-500 lg:border-green-500 md:border-purple-500 sm:border-white md:py-48 lg:py-64"
     >
-      <Content />
       <div
-        class="absolute hidden h-32 lg:h-48 right-48 lg:right-64 top-48 lg:top-64 md:flex"
+        class="relative flex h-32 -translate-x-4 md:absolute lg:h-48 md:right-48 lg:right-64 md:top-48 lg:top-64 md:translate-x-0"
       >
         <ThemeTool client:only="react" />
         <ColorTool client:only="react" />
       </div>
+      <Content />
     </main>
   </body>
 </html>
