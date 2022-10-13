@@ -19,7 +19,11 @@ const api = {
     savedCanvas = canvas;
     root = createRoot(canvas);
     root.configure({
-      events,
+      events:
+        typeof window !== "undefined" &&
+        window.matchMedia("(hover: hover)").matches
+          ? events
+          : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
@@ -36,7 +40,11 @@ const api = {
   },
   onResize(ev) {
     root.configure({
-      events,
+      events:
+        typeof window !== "undefined" &&
+        window.matchMedia("(hover: hover)").matches
+          ? events
+          : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
