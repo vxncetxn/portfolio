@@ -4,17 +4,21 @@ import { Text } from "./Text";
 
 export function ClockWidget() {
   const time = useObservable(
-    (() => {
-      let timeString = new Date().toLocaleTimeString("en-US");
-      return `${timeString.slice(0, -6)} ${timeString.slice(-2)}`;
-    })()
+    new Date().toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+    })
   );
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      let timeString = new Date().toLocaleTimeString("en-US");
-      time.set(`${timeString.slice(0, -6)} ${timeString.slice(-2)}`);
-    }, 60000);
+      time.set(
+        new Date().toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+        })
+      );
+    }, 15000);
     return () => {
       clearInterval(timerId);
     };
@@ -22,7 +26,7 @@ export function ClockWidget() {
 
   return (
     <Text size="small" className="tabular-nums">
-      {time} (+8)
+      {time} (GMT+8)
     </Text>
   );
 }
