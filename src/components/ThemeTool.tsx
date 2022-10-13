@@ -2,7 +2,7 @@ import { observable } from "@legendapp/state";
 import { useSelector } from "@legendapp/state/react";
 import { theme } from "../state/theme";
 
-const options = ["Light", "Dark", "System"];
+const options = ["Light", "Dark", "Auto"];
 
 const selectedOption = observable(
   (() => {
@@ -12,7 +12,7 @@ const selectedOption = observable(
     } else if (storedTheme === "dark") {
       return "Dark";
     } else {
-      return "System";
+      return "Auto";
     }
   })()
 );
@@ -42,20 +42,20 @@ export function ThemeTool() {
   const $selectedOption = useSelector(() => selectedOption.get());
 
   return (
-    <div className="flex text-neutral-02 bg-neutral-03 w-240 rounded-16 px-8 py-8 transition-colors">
+    <div className="relative flex items-center transition-colors text-neutral-02 bg-neutral-03 w-160 mobile:w-200 tablet:w-240 rounded-16">
       <div
         className={
           $selectedOption === "Light"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-0"
+            ? "absolute left-4 top-4 bg-neutral-01 w-[calc((100%-8px)/3)] h-[calc(100%-8px)] rounded-[12px] transition translate-x-0"
             : $selectedOption === "Dark"
-            ? "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-full"
-            : "absolute left-8 top-8 bg-neutral-01 w-[calc((240px-16px)/3)] h-[calc(100%-16px)] rounded-8 transition translate-x-[200%]"
+            ? "absolute left-4 top-4 bg-neutral-01 w-[calc((100%-8px)/3)] h-[calc(100%-8px)] rounded-[12px] transition translate-x-full"
+            : "absolute left-4 top-4 bg-neutral-01 w-[calc((100%-8px)/3)] h-[calc(100%-8px)] rounded-[12px] transition translate-x-[200%]"
         }
       ></div>
       {options.map((option) => (
         <button
           onClick={() => selectedOption.set(option)}
-          className="relative flex-1 font-sans text-18 text-neutral-02 capsize py-12 transition-colors rounded-8 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+          className="relative flex-1 h-full font-sans transition-colors text-14 mobile:text-16 tablet:text-18 text-neutral-02 capsize rounded-8 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
         >
           {option}
         </button>

@@ -3,19 +3,29 @@ import { useObservable } from "@legendapp/state/react";
 import { Text } from "./Text";
 
 export function ClockWidget() {
-  const time = useObservable(new Date().toLocaleTimeString("en-US"));
+  const time = useObservable(
+    new Date().toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+    })
+  );
 
   useEffect(() => {
     const timerId = setInterval(() => {
-      time.set(new Date().toLocaleTimeString("en-US"));
-    }, 1000);
+      time.set(
+        new Date().toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+        })
+      );
+    }, 15000);
     return () => {
       clearInterval(timerId);
     };
   }, []);
 
   return (
-    <Text size="small" className="ml-12 tabular-nums">
+    <Text size="small" className="tabular-nums">
       {time} (GMT+8)
     </Text>
   );

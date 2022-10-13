@@ -7,14 +7,14 @@ import { ClockWidget } from "./ClockWidget";
 import { SpotifyWidget } from "./SpotifyWidget";
 ---
 
-<div
-  class="flex flex-col justify-between absolute left-0 top-0 h-screen py-64 pl-120 max-w-[640px]"
->
+<div class="flex flex-col h-full w-full tablet:w-[60ch]">
   <div class="space-y-20">
     <Header>Vance Tan // VXN</Header>
     <Text>Portfolio v2 — 2022</Text>
   </div>
-  <div class="flex flex-col space-y-40">
+  <div
+    class="flex flex-col mt-40 space-y-40 mobile:mt-48 tablet:mt-64 desktop:mt-80"
+  >
     <Text>
       I am a <Span>SOFTWARE ENGINEER</Span> and <Span>DESIGNER</Span> passionate
       about building beautiful experiences on the web. I sometimes also do some freelance
@@ -40,7 +40,7 @@ import { SpotifyWidget } from "./SpotifyWidget";
       > and an absolute fan of good food.
     </Text>
     <div class="flex flex-col space-y-20">
-      <div class="flex space-x-12">
+      <div class="flex flex-wrap gap-x-8 gap-y-16">
         <div class="flex items-center space-x-8">
           <svg
             width="16"
@@ -105,7 +105,9 @@ import { SpotifyWidget } from "./SpotifyWidget";
       </div>
     </div>
   </div>
-  <div class="flex items-center space-x-12">
+  <div
+    class="flex flex-wrap items-center mt-auto gap-x-8 tablet:gap-x-16 gap-y-4"
+  >
     <Anchor href="https://github.com/vxncetxn" font="sans" size="small"
       >Github</Anchor
     >

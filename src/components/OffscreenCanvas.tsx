@@ -29,8 +29,8 @@ export default function OffscreenCanvas() {
       const worker = new OffscreenWorker();
       const api = Comlink.wrap(worker);
 
-      canvas.addEventListener(
-        "pointermove",
+      window.addEventListener(
+        "mousemove",
         //   throttle(api.onPointerMove.bind(api), 100)
         api.onPointerMove.bind(api)
       );
@@ -52,16 +52,16 @@ export default function OffscreenCanvas() {
               left: 0,
               updateStyle: false,
             },
+            hasHover: window.matchMedia("(hover: hover)").matches,
           },
           [offscreen]
         )
       );
       window.addEventListener("resize", api.onResize.bind(api));
-      // window.dispatchEvent(new Event("resize"));
     }
 
     createRootFromCanvas();
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} className="absolute left-0 top-0" />;
 }

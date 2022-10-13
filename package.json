@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "generate-images": "node generate-images.js",
-    "dev": "pnpm generate-images && astro dev",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "pnpm generate-images && astro build",
     "preview": "astro preview"

@@ -1,15 +1,16 @@
 import ReactDOM from "react-dom";
 import * as THREE from "three";
 import React, { useState } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend, useFrame, useThree } from "@react-three/fiber";
 import {
   softShadows,
   Text3D,
   MeshReflectorMaterial,
-  BakeShadows,
+  // BakeShadows,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
+import { linInterpolate } from "../lib/linear-interpolate";
 
 extend(THREE);
 softShadows();
@@ -23,7 +24,7 @@ function Intro() {
   const [vec] = useState(() => new THREE.Vector3());
   return useFrame((state) => {
     state.camera.position.lerp(
-      vec.set(state.pointer.x * 5, 3 + state.pointer.y * 2, 14),
+      vec.set(state.pointer.x * 2, -1 + state.pointer.y * 2, 14),
       0.05
     );
     state.camera.lookAt(0, 0, 0);
@@ -33,13 +34,14 @@ function Intro() {
 export function Scene({ theme, color }: SceneProps) {
   const selectedTheme = useSelector(() => theme.get());
   const selectedColor = useSelector(() => color.get());
+  const { size } = useThree();
 
   return (
     <>
       {selectedTheme === "light" ? (
         <fog attach="fog" args={["white", 0, 40]} />
       ) : (
-        <fog attach="fog" args={["#1c1c1c", 0, 40]} />
+        <fog attach="fog" args={["#1c1c1c", 0, 30]} />
       )}
       <ambientLight intensity={0.4} />
       <directionalLight
@@ -63,9 +65,9 @@ export function Scene({ theme, color }: SceneProps) {
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
-        size={4}
+        size={linInterpolate(320, 1536, 1.6, 4.2, size.width)}
         height={1}
-        position={[0, -5, 0]}
+        position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn
@@ -99,7 +101,7 @@ export function Scene({ theme, color }: SceneProps) {
           />
         )}
       </mesh>
-      <BakeShadows />
+      {/* <BakeShadows /> */}
       <Intro />
     </>
   );

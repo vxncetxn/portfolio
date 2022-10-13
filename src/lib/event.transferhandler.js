@@ -9,8 +9,11 @@ export function initTransferHandler() {
       return [
         {
           eventName: ev && ev.type,
-          offsetX: ev && ev.offsetX,
-          offsetY: ev && ev.offsetY,
+          width: ev && ev.type === "resize" ? ev.target.innerWidth : undefined,
+          height:
+            ev && ev.type === "resize" ? ev.target.innerHeight : undefined,
+          offsetX: ev && ev.clientX,
+          offsetY: ev && ev.clientY,
           theme: ev && ev.theme,
           color: ev && ev.color,
         },
