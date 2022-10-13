@@ -74,9 +74,9 @@ export function Scene({ theme, color }: SceneProps) {
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
-        size={interpolate(320, 1024, 1.6, 4, size.width)}
+        size={interpolate(320, 1536, 1.6, 4.2, size.width)}
         height={1}
-        position={[interpolate(320, 1024, -3.5, 0, size.width), -5, 0]}
+        position={[interpolate(320, 1536, -3.5, -0.75, size.width), -5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn

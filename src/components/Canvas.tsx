@@ -13,7 +13,9 @@ export default function Canvas() {
 
     window.addEventListener("resize", () => {
       root.configure({
-        events,
+        events: window.matchMedia("(hover: hover)").matches
+          ? events
+          : undefined,
         shadows: true,
         camera: { fov: 60, near: 1, far: 50 },
         dpr: 1,

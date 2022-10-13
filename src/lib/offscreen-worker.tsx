@@ -10,16 +10,19 @@ initTransferHandler();
 
 let root;
 let savedCanvas;
+let eventsPresent;
 const theme = observable("light");
 const color = observable("#34fdaa");
 
 const api = {
   init(props) {
-    let { canvas, dimensions } = props;
+    let { canvas, dimensions, hasHover } = props;
     savedCanvas = canvas;
     root = createRoot(canvas);
+    eventsPresent = hasHover;
+
     root.configure({
-      events,
+      events: eventsPresent ? events : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
@@ -36,7 +39,7 @@ const api = {
   },
   onResize(ev) {
     root.configure({
-      events,
+      events: eventsPresent ? events : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
       dpr: 1,
