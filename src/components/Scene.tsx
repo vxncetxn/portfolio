@@ -10,6 +10,7 @@ import {
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
+import { linInterpolate } from "../lib/linear-interpolate";
 
 extend(THREE);
 softShadows();
@@ -17,16 +18,6 @@ softShadows();
 interface SceneProps {
   theme: ObservablePrimitive<string>;
   color: ObservablePrimitive<string>;
-}
-
-function interpolate(rangeA, rangeB, resultA, resultB, value) {
-  return Math.max(
-    Math.min(
-      ((value - rangeA) / (rangeB - rangeA)) * (resultB - resultA) + resultA,
-      resultB
-    ),
-    resultA
-  );
 }
 
 function Intro() {
@@ -74,9 +65,9 @@ export function Scene({ theme, color }: SceneProps) {
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
-        size={interpolate(320, 1536, 1.6, 4.2, size.width)}
+        size={linInterpolate(320, 1536, 1.6, 4.2, size.width)}
         height={1}
-        position={[interpolate(320, 1536, -3.5, -0.75, size.width), -5, 0]}
+        position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn

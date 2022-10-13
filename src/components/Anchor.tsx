@@ -21,7 +21,7 @@ export function Anchor({
   imgAlt,
   children,
 }: AnchorProps) {
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<HTMLAnchorElement>(null);
   const [previewOpen, setPreviewOpen] = useState(false);
 
   return (
@@ -63,7 +63,8 @@ export function Anchor({
       </a>
       {typeof window !== "undefined" &&
       window.matchMedia("(hover: hover)").matches &&
-      img ? (
+      img &&
+      imgAlt ? (
         <LinkPreview
           open={previewOpen}
           img={img}

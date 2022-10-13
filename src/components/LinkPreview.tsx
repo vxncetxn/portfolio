@@ -5,7 +5,7 @@ interface LinkPreviewProps {
   open: boolean;
   img: string;
   imgAlt: string;
-  anchorRef: React.MutableRefObject<null>;
+  anchorRef: React.RefObject<HTMLAnchorElement>;
 }
 
 export default function LinkPreview({
@@ -23,51 +23,55 @@ export default function LinkPreview({
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      const domRect = anchorRef.current.getBoundingClientRect();
-      const bounds = {
-        left: domRect.left,
-        right: window.innerWidth - domRect.left - domRect.width,
-        top: domRect.top,
-        bottom: window.innerHeight - domRect.top - domRect.height,
-        width: domRect.width,
-      };
+      if (anchorRef.current) {
+        const domRect = anchorRef.current.getBoundingClientRect();
+        const bounds = {
+          left: domRect.left,
+          right: window.innerWidth - domRect.left - domRect.width,
+          top: domRect.top,
+          bottom: window.innerHeight - domRect.top - domRect.height,
+          width: domRect.width,
+        };
 
-      let widthPop;
-      if (window.matchMedia("(min-width: 1024px)").matches) {
-        widthPop = 360;
-      } else if (window.matchMedia("(min-width: 768px)").matches) {
-        widthPop = 320;
-      } else if (window.matchMedia("(min-width: 375px)").matches) {
-        widthPop = 280;
-      } else {
-        widthPop = 240;
+        let widthPop;
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+          widthPop = 360;
+        } else if (window.matchMedia("(min-width: 768px)").matches) {
+          widthPop = 320;
+        } else if (window.matchMedia("(min-width: 375px)").matches) {
+          widthPop = 280;
+        } else {
+          widthPop = 240;
+        }
+        const heightPop = widthPop / (16 / 9);
+        const collisionPadding = 8;
+
+        const leftCollision =
+          collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left > 0
+            ? collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left
+            : 0;
+        const rightCollision =
+          bounds.right - (collisionPadding + 0.5 * (widthPop - bounds.width)) <
+          0
+            ? bounds.right -
+              (collisionPadding + 0.5 * (widthPop - bounds.width))
+            : 0;
+        const topCollision =
+          collisionPadding + heightPop + 8 - bounds.top > 0
+            ? heightPop + 8 - bounds.top
+            : 0;
+        const bottomCollision =
+          collisionPadding + heightPop + 8 - bounds.bottom > 0
+            ? heightPop + 8 - bounds.bottom
+            : 0;
+
+        setCollisionParams({
+          left: leftCollision,
+          right: rightCollision,
+          top: topCollision,
+          bottom: bottomCollision,
+        });
       }
-      const heightPop = widthPop / (16 / 9);
-      const collisionPadding = 8;
-
-      const leftCollision =
-        collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left > 0
-          ? collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left
-          : 0;
-      const rightCollision =
-        bounds.right - (collisionPadding + 0.5 * (widthPop - bounds.width)) < 0
-          ? bounds.right - (collisionPadding + 0.5 * (widthPop - bounds.width))
-          : 0;
-      const topCollision =
-        collisionPadding + heightPop + 8 - bounds.top > 0
-          ? heightPop + 8 - bounds.top
-          : 0;
-      const bottomCollision =
-        collisionPadding + heightPop + 8 - bounds.bottom > 0
-          ? heightPop + 8 - bounds.bottom
-          : 0;
-
-      setCollisionParams({
-        left: leftCollision,
-        right: rightCollision,
-        top: topCollision,
-        bottom: bottomCollision,
-      });
     }, 500);
 
     handleResize();
