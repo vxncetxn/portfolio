@@ -1,5 +1,13 @@
-import { useState } from "react";
-import { Text } from "./Text";
+import { useRef, useState, useEffect } from "react";
+// import { Text } from "./Text";
+
+function debounce(fn, wait = 1) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.call(this, ...args), wait);
+  };
+}
 
 interface AnchorProps {
   href: string;
@@ -15,12 +23,74 @@ export function Anchor({
   href,
   font = "serif",
   size = "base",
-  linkType = "default",
+  // linkType = "default",
   img,
   imgAlt,
   children,
 }: AnchorProps) {
+  const anchorRef = useRef();
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [collisionParams, setCollisionParams] = useState({
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  });
+
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      const domRect = anchorRef.current.getClientRects()[0];
+      const bounds = {
+        left: domRect.left,
+        right: window.innerWidth - domRect.left - domRect.width,
+        top: domRect.top,
+        bottom: window.innerHeight - domRect.top - domRect.height,
+        width: domRect.width,
+      };
+      const widthPop = 360;
+      const heightPop = widthPop / (16 / 9);
+      const collisionPadding = 16;
+
+      const leftCollision =
+        collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left > 0
+          ? collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left
+          : 0;
+      const rightCollision =
+        bounds.right - (collisionPadding + 0.5 * (widthPop - bounds.width)) < 0
+          ? bounds.right - (collisionPadding + 0.5 * (widthPop - bounds.width))
+          : 0;
+      const topCollision =
+        collisionPadding + heightPop + 8 - bounds.top > 0
+          ? heightPop + 8 - bounds.top
+          : 0;
+      const bottomCollision =
+        collisionPadding + heightPop + 8 - bounds.bottom > 0
+          ? heightPop + 8 - bounds.bottom
+          : 0;
+
+      setCollisionParams({
+        left: leftCollision,
+        right: rightCollision,
+        top: topCollision,
+        bottom: bottomCollision,
+      });
+
+      console.log(
+        "Look here: ",
+        bounds.right,
+        collisionPadding + 0.5 * (widthPop - bounds.width),
+        bounds.right - collisionPadding + 0.5 * (widthPop - bounds.width),
+        children
+      );
+    }, 500);
+
+    window.dispatchEvent(new Event("resize"));
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <span
@@ -29,6 +99,7 @@ export function Anchor({
       className="relative"
     >
       <a
+        ref={anchorRef}
         href={href}
         target="_blank"
         rel="noopener"
@@ -44,11 +115,22 @@ export function Anchor({
       </a>
       {img ? (
         <div
-          className={`absolute left-1/2 -top-200 -translate-x-1/2 bg-neutral-01 w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
-            previewOpen
-              ? "opacity-1 -translate-y-20"
-              : "opacity-0 translate-y-40"
-          }`}
+          className={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
+            collisionParams.top ? "top-full" : "bottom-full"
+          } ${previewOpen ? "opacity-1" : "opacity-0"}`}
+          style={{
+            transform: `translate(calc(-50% + ${
+              collisionParams.left || collisionParams.right || 0
+            }px), ${
+              previewOpen
+                ? collisionParams.top
+                  ? "8"
+                  : "-8"
+                : collisionParams.top
+                ? "-40"
+                : "40"
+            }px)`,
+          }}
         >
           <picture>
             <source
@@ -74,7 +156,7 @@ export function Anchor({
               className="object-cover w-360 aspect-video"
             />
           </picture>
-          <div className="absolute right-16 bottom-16 flex items-center space-x-8 p-8 backdrop-blur-sm bg-[#100a0a]/30 rounded-8">
+          {/* <div className="absolute right-16 bottom-16 flex items-center space-x-8 p-8 backdrop-blur-sm bg-[#100a0a]/30 rounded-8">
             <Text size="small" className="text-white">
               VISIT {linkType === "demo" ? "DEMO" : "LINK"}
             </Text>
@@ -94,7 +176,7 @@ export function Anchor({
                 clipRule="evenodd"
               />
             </svg>
-          </div>
+          </div> */}
         </div>
       ) : null}
     </span>
