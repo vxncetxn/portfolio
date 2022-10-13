@@ -59,16 +59,10 @@ export default function LinkPreview({
         bottom: bottomCollision,
       });
 
-      console.log(
-        "Look here: ",
-        bounds.right,
-        collisionPadding + 0.5 * (widthPop - bounds.width),
-        bounds.right - collisionPadding + 0.5 * (widthPop - bounds.width),
-        img
-      );
+      console.log("Look here: ", img);
     }, 500);
 
-    window.dispatchEvent(new Event("resize"));
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => {

@@ -33,7 +33,7 @@ export function Anchor({
           ? () => {
               setPreviewOpen(true);
             }
-          : null
+          : undefined
       }
       onMouseLeave={
         typeof window !== "undefined" &&
@@ -42,7 +42,7 @@ export function Anchor({
           ? () => {
               setPreviewOpen(false);
             }
-          : null
+          : undefined
       }
       className="relative"
     >
