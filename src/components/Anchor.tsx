@@ -57,7 +57,7 @@ export function Anchor({
             : "base"
             ? "text-16 mobile:text-18 tablet:text-20 desktop:text-24"
             : "text-24 mobile:text-28 tablet:text-32 desktop:text-40"
-        } text-neutral-02 underline transition-colors selection:bg-theme-selected rounded-2 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
+        } inline-block text-neutral-02 underline transition-colors selection:bg-theme-selected rounded-2 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
       >
         {children}
       </a>

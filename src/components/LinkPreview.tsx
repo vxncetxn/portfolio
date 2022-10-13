@@ -23,7 +23,7 @@ export default function LinkPreview({
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      const domRect = anchorRef.current.getClientRects()[0];
+      const domRect = anchorRef.current.getBoundingClientRect();
       const bounds = {
         left: domRect.left,
         right: window.innerWidth - domRect.left - domRect.width,
@@ -31,9 +31,19 @@ export default function LinkPreview({
         bottom: window.innerHeight - domRect.top - domRect.height,
         width: domRect.width,
       };
-      const widthPop = 360;
+
+      let widthPop;
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        widthPop = 360;
+      } else if (window.matchMedia("(min-width: 768px)").matches) {
+        widthPop = 320;
+      } else if (window.matchMedia("(min-width: 375px)").matches) {
+        widthPop = 280;
+      } else {
+        widthPop = 240;
+      }
       const heightPop = widthPop / (16 / 9);
-      const collisionPadding = 16;
+      const collisionPadding = 8;
 
       const leftCollision =
         collisionPadding + 0.5 * (widthPop - bounds.width) - bounds.left > 0
@@ -58,8 +68,6 @@ export default function LinkPreview({
         top: topCollision,
         bottom: bottomCollision,
       });
-
-      console.log("Look here: ", img);
     }, 500);
 
     handleResize();
@@ -72,7 +80,7 @@ export default function LinkPreview({
 
   return (
     <div
-      className={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
+      className={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-240 mobile:w-280 tablet:w-320 desktop:w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
         collisionParams.top ? "top-full" : "bottom-full"
       } ${open ? "opacity-1" : "opacity-0"}`}
       style={{
