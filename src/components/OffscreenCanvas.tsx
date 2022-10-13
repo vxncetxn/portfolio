@@ -29,8 +29,8 @@ export default function OffscreenCanvas() {
       const worker = new OffscreenWorker();
       const api = Comlink.wrap(worker);
 
-      canvas.addEventListener(
-        "pointermove",
+      window.addEventListener(
+        "mousemove",
         //   throttle(api.onPointerMove.bind(api), 100)
         api.onPointerMove.bind(api)
       );

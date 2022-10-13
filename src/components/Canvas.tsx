@@ -13,11 +13,7 @@ export default function Canvas() {
 
     window.addEventListener("resize", () => {
       root.configure({
-        events:
-          typeof window !== "undefined" &&
-          window.matchMedia("(hover: hover)").matches
-            ? events
-            : undefined,
+        events,
         shadows: true,
         camera: { fov: 60, near: 1, far: 50 },
         dpr: 1,
@@ -32,7 +28,13 @@ export default function Canvas() {
       root.render(<Scene theme={theme} color={color} />);
     });
     window.dispatchEvent(new Event("resize"));
+    window.addEventListener("mousemove", (ev) => {
+      let customEv = new CustomEvent("pointermove");
+      customEv.offsetX = ev.clientX;
+      customEv.offsetY = ev.clientY;
+      canvasRef.current.dispatchEvent(customEv);
+    });
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return <canvas ref={canvasRef} className="absolute left-0 top-0" />;
 }

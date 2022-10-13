@@ -6,7 +6,7 @@ import {
   softShadows,
   Text3D,
   MeshReflectorMaterial,
-  BakeShadows,
+  // BakeShadows,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
@@ -33,7 +33,7 @@ function Intro() {
   const [vec] = useState(() => new THREE.Vector3());
   return useFrame((state) => {
     state.camera.position.lerp(
-      vec.set(state.pointer.x * 5, 3 + state.pointer.y * 2, 14),
+      vec.set(state.pointer.x * 2, -1 + state.pointer.y * 2, 14),
       0.05
     );
     state.camera.lookAt(0, 0, 0);
@@ -50,7 +50,7 @@ export function Scene({ theme, color }: SceneProps) {
       {selectedTheme === "light" ? (
         <fog attach="fog" args={["white", 0, 40]} />
       ) : (
-        <fog attach="fog" args={["#1c1c1c", 0, 40]} />
+        <fog attach="fog" args={["#1c1c1c", 0, 30]} />
       )}
       <ambientLight intensity={0.4} />
       <directionalLight
@@ -110,7 +110,7 @@ export function Scene({ theme, color }: SceneProps) {
           />
         )}
       </mesh>
-      <BakeShadows />
+      {/* <BakeShadows /> */}
       <Intro />
     </>
   );
