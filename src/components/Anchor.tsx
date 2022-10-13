@@ -34,10 +34,10 @@ export function Anchor({
         rel="noopener"
         className={`${font === "sans" ? "font-sans" : "font-serif"} ${
           size === "small"
-            ? "text-14 xs:text-16 md:text-18"
+            ? "text-14 mobile:text-16 tablet:text-18"
             : "base"
-            ? "text-16 xs:text-18 md:text-20 lg:text-24"
-            : "text-24 xs:text-28 md:text-32 lg:text-40"
+            ? "text-16 mobile:text-18 tablet:text-20 desktop:text-24"
+            : "text-24 mobile:text-28 tablet:text-32 desktop:text-40"
         } text-neutral-02 underline transition-colors selection:bg-theme-selected rounded-2 focus-visible:outline-none focus-visible:ring focus-visible:ring-theme-selected focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
       >
         {children}

@@ -66,14 +66,10 @@ module.exports = {
       full: "50%",
     },
     screens: {
-      xs: "375px",
-      ...defaultTheme.screens,
+      mobile: "375px",
+      tablet: "768px",
+      desktop: "1024px",
     },
-    // screens: {
-    //   mobile: "375px",
-    //   tablet: "768px",
-    //   desktop: "1024px",
-    // },
     extend: {
       colors: {
         "neutral-01": "var(--color-neutral-01)",
@@ -81,6 +77,9 @@ module.exports = {
         "neutral-03": "var(--color-neutral-03)",
         "neutral-04": "var(--color-neutral-04)",
         "theme-selected": "var(--color-theme-selected)",
+      },
+      borderWidth: {
+        6: "6px",
       },
     },
   },
