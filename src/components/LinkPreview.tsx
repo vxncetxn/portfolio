@@ -1,6 +1,19 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { debounce } from "../lib/debounce";
 
-export function LinkPreview({ open }) {
+interface LinkPreviewProps {
+  open: boolean;
+  img: string;
+  imgAlt: string;
+  anchorRef: React.MutableRefObject<null>;
+}
+
+export default function LinkPreview({
+  open,
+  img,
+  imgAlt,
+  anchorRef,
+}: LinkPreviewProps) {
   const [collisionParams, setCollisionParams] = useState({
     left: 0,
     right: 0,
@@ -51,7 +64,7 @@ export function LinkPreview({ open }) {
         bounds.right,
         collisionPadding + 0.5 * (widthPop - bounds.width),
         bounds.right - collisionPadding + 0.5 * (widthPop - bounds.width),
-        children
+        img
       );
     }, 500);
 
