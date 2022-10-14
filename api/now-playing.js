@@ -22,7 +22,7 @@ export default async function handler(_, response) {
   const isPlaying = song.is_playing;
   const title = song.item.name;
   const artist = song.item.artists.map((_artist) => _artist.name).join(", ");
-  const albumImageUrl = song.item.album.images[0].url;
+  // const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
 
   return response
@@ -33,7 +33,7 @@ export default async function handler(_, response) {
       "public, s-maxage=60, stale-while-revalidate=30"
     )
     .json({
-      albumImageUrl,
+      // albumImageUrl,
       artist,
       isPlaying,
       songUrl,

@@ -66,6 +66,25 @@ module.exports = {
       16: "1rem",
       full: "50%",
     },
+    keyframes: {
+      "eq-bar-one-scale": {
+        "0%, 100%": { transform: "scaleY(0)" },
+        "50%": { transform: "scaleY(1.5)" },
+      },
+      "eq-bar-two-scale": {
+        "0%, 100%": { transform: "scaleY(1)" },
+        "50%": { transform: "scaleY(0.5)" },
+      },
+      "eq-bar-three-scale": {
+        "0%, 100%": { transform: "scaleY(0)" },
+        "50%": { transform: "scaleY(1)" },
+      },
+    },
+    animation: {
+      "eq-bar-one": "eq-bar-one-scale 0.5s linear 0.1s infinite",
+      "eq-bar-two": "eq-bar-two-scale 0.5s linear 0.2s infinite",
+      "eq-bar-three": "eq-bar-three-scale 0.5s linear 0.3s infinite",
+    },
     screens: {
       mobile: "376px",
       tablet: "768px",
