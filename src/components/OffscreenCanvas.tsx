@@ -47,7 +47,7 @@ export default function OffscreenCanvas() {
             canvas: offscreen,
             dimensions: {
               width: window.innerWidth,
-              height: window.innerHeight,
+              height: Math.max(window.innerHeight, 664),
               top: 0,
               left: 0,
               updateStyle: false,

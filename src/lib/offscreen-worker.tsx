@@ -45,7 +45,7 @@ const api = {
       dpr: 1,
       size: {
         width: ev.width,
-        height: ev.height,
+        height: Math.max(ev.height, 664),
         top: 0,
         left: 0,
         updateStyle: false,
