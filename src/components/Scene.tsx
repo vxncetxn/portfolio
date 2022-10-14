@@ -7,7 +7,6 @@ import {
   Text3D,
   MeshReflectorMaterial,
   // BakeShadows,
-  AdaptiveDpr,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
@@ -68,7 +67,7 @@ export function Scene({ theme, color }: SceneProps) {
         castShadow={selectedTheme === "light"}
         size={linInterpolate(320, 1536, 2, 4.2, size.width)}
         height={1}
-        position={[linInterpolate(320, 1536, -4, -0.75, size.width), -5.5, 0]}
+        position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5.5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn
@@ -103,7 +102,6 @@ export function Scene({ theme, color }: SceneProps) {
         )}
       </mesh>
       {/* <BakeShadows /> */}
-      {/* <AdaptiveDpr /> */}
       <Intro />
     </>
   );
