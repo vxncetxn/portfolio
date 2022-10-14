@@ -54,7 +54,7 @@ import Content from "../components/Content.astro";
         // themes
         enableLegendStateReact();
         const storedTheme = window.localStorage.getItem("theme");
-        const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
+        const darkModePref = window.matchMedia("(prefers-color-scheme: dark)");
         if (storedTheme) {
           theme.set(storedTheme);
         } else if (darkModePref.matches) {
