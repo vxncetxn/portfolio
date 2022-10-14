@@ -52,6 +52,7 @@ export default function OffscreenCanvas() {
               left: 0,
               updateStyle: false,
             },
+            devicePixelRatio: window.devicePixelRatio,
             hasHover: window.matchMedia("(hover: hover)").matches,
           },
           [offscreen]

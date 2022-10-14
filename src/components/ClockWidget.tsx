@@ -7,6 +7,7 @@ export function ClockWidget() {
     new Date().toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "numeric",
+      timeZone: "Asia/Singapore",
     })
   );
 
@@ -16,6 +17,7 @@ export function ClockWidget() {
         new Date().toLocaleTimeString("en-US", {
           hour: "numeric",
           minute: "numeric",
+          timeZone: "Asia/Singapore",
         })
       );
     }, 15000);

@@ -7,6 +7,7 @@ import {
   Text3D,
   MeshReflectorMaterial,
   // BakeShadows,
+  AdaptiveDpr,
 } from "@react-three/drei";
 import { useSelector } from "@legendapp/state/react";
 import type { ObservablePrimitive } from "@legendapp/state";
@@ -102,6 +103,7 @@ export function Scene({ theme, color }: SceneProps) {
         )}
       </mesh>
       {/* <BakeShadows /> */}
+      {/* <AdaptiveDpr /> */}
       <Intro />
     </>
   );

@@ -10,18 +10,24 @@ export default function Canvas() {
 
   useEffect(() => {
     const root = createRoot(canvasRef.current);
+    const eventsPresent = window.matchMedia("(hover: hover)").matches;
 
     window.addEventListener("resize", () => {
       root.configure({
-        events: window.matchMedia("(hover: hover)").matches
-          ? events
-          : undefined,
+        events: eventsPresent ? events : undefined,
         shadows: true,
         camera: { fov: 60, near: 1, far: 50 },
-        dpr: 1,
+        dpr: eventsPresent ? 1 : window.devicePixelRatio,
         size: {
-          width: window.innerWidth,
-          height: Math.max(window.innerHeight, 664),
+          width: eventsPresent
+            ? window.innerWidth
+            : window.innerWidth / window.devicePixelRatio,
+          height: eventsPresent
+            ? Math.max(window.innerHeight, 664)
+            : Math.max(
+                window.innerHeight / window.devicePixelRatio,
+                664 / window.devicePixelRatio
+              ),
           top: 0,
           left: 0,
           updateStyle: false,
