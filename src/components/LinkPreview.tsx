@@ -84,7 +84,7 @@ export default function LinkPreview({
 
   return (
     <div
-      className={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-240 mobile:w-280 tablet:w-320 desktop:w-360 aspect-video rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
+      className={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-240 mobile:w-280 tablet:w-320 desktop:w-360 h-[calc(240px/16*9)] mobile:h-[calc(280px/16*9)] tablet:h-[calc(320px/16*9)] desktop:h-[calc(360px/16*9)] rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
         collisionParams.top ? "top-full" : "bottom-full"
       } ${open ? "opacity-1" : "opacity-0"}`}
       style={{
@@ -122,7 +122,7 @@ export default function LinkPreview({
           alt={imgAlt}
           loading="lazy"
           decoding="async"
-          className="object-cover w-360 aspect-video"
+          className="object-cover w-full h-full"
         />
       </picture>
       {/* <div className="absolute right-16 bottom-16 flex items-center space-x-8 p-8 backdrop-blur-sm bg-[#100a0a]/30 rounded-8">

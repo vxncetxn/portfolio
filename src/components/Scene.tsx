@@ -65,9 +65,9 @@ export function Scene({ theme, color }: SceneProps) {
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
         receiveShadow={selectedTheme === "light"}
         castShadow={selectedTheme === "light"}
-        size={linInterpolate(320, 1536, 1.6, 4.2, size.width)}
+        size={linInterpolate(320, 1536, 1.9, 4.2, size.width)}
         height={1}
-        position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5, 0]}
+        position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5.5, 0]}
         rotation={[0, 0.1, 0]}
       >
         vxn
@@ -75,7 +75,7 @@ export function Scene({ theme, color }: SceneProps) {
       </Text3D>
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -5, 0]}
+        position={[0, -5.5, 0]}
         receiveShadow={selectedTheme === "light"}
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />

@@ -67,7 +67,7 @@ module.exports = {
       full: "50%",
     },
     screens: {
-      mobile: "375px",
+      mobile: "376px",
       tablet: "768px",
       desktop: "1024px",
     },
@@ -88,6 +88,7 @@ module.exports = {
     require("tailwindcss-capsize"),
     plugin(function ({ addVariant }) {
       addVariant("hover-none", "@media (hover: none)");
+      addVariant("supports-svh", "@supports (height: 100svh)");
     }),
   ],
 };

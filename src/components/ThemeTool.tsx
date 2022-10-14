@@ -27,7 +27,7 @@ selectedOption.onChange((value) => {
       window.localStorage.setItem("theme", "dark");
       break;
     default:
-      const darkModePref = window.matchMedia("(prefers-color-scheme: dark");
+      const darkModePref = window.matchMedia("(prefers-color-scheme: dark)");
       if (darkModePref.matches) {
         theme.set("dark");
       } else {

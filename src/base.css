@@ -38,4 +38,11 @@
     --color-neutral-03: #262626;
     --color-neutral-04: #454545;
   }
+
+  [theme="light"] {
+    --color-neutral-01: #ffffff;
+    --color-neutral-02: #100a0a;
+    --color-neutral-03: #f5f5f5;
+    --color-neutral-04: #ebebeb;
+  }
 }

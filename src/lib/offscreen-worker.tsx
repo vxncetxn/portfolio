@@ -11,22 +11,30 @@ initTransferHandler();
 let root;
 let savedCanvas;
 let eventsPresent;
+let dpr;
 const theme = observable("light");
 const color = observable("#34fdaa");
 
 const api = {
   init(props) {
-    let { canvas, dimensions, hasHover } = props;
+    let { canvas, dimensions, devicePixelRatio, hasHover } = props;
     savedCanvas = canvas;
     root = createRoot(canvas);
     eventsPresent = hasHover;
+    dpr = devicePixelRatio;
 
     root.configure({
       events: eventsPresent ? events : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
-      dpr: 1,
-      size: dimensions,
+      dpr: eventsPresent ? 1 : dpr,
+      size: eventsPresent
+        ? dimensions
+        : {
+            ...dimensions,
+            width: dimensions.width / dpr,
+            height: dimensions.height / dpr,
+          },
     });
     root.render(<Scene theme={theme} color={color} />);
   },
@@ -42,10 +50,12 @@ const api = {
       events: eventsPresent ? events : undefined,
       shadows: true,
       camera: { fov: 60, near: 1, far: 50 },
-      dpr: 1,
+      dpr: eventsPresent ? 1 : dpr,
       size: {
-        width: ev.width,
-        height: ev.height,
+        width: eventsPresent ? ev.width : ev.width / dpr,
+        height: eventsPresent
+          ? Math.max(ev.height, 664)
+          : Math.max(ev.height / dpr, 664 / dpr),
         top: 0,
         left: 0,
         updateStyle: false,
