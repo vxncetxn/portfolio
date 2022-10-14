@@ -33,13 +33,13 @@ export function SpotifyWidget() {
       <Text size="small" className="ml-8">
         {data?.isPlaying ? (
           <>
-            Now Playing —{" "}
-            <Anchor href={data.songUrl} font="primary" size="small">
+            Now Listening To —{" "}
+            <Anchor href={data.songUrl} font="sans" size="small">
               {data.title} by {data.artist}
             </Anchor>
           </>
         ) : (
-          <>Not Playing</>
+          <>Not Listening Now</>
         )}
       </Text>
     </>
