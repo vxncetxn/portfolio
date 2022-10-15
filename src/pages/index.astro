@@ -3,7 +3,7 @@ import "../base.css";
 import CanvasControlFlow from "../components/CanvasControlFlow.svelte";
 import ThemeTool from "../components/ThemeTool.svelte";
 import ColorTool from "../components/ColorTool.svelte";
-// import Content from "../components/Content.astro";
+import Content from "../components/Content.astro";
 // import { SEO } from "astro-seo";
 ---
 
@@ -121,14 +121,13 @@ import ColorTool from "../components/ColorTool.svelte";
     <main
       class="relative flex flex-col space-y-32 tablet:space-y-0 items-start justify-between w-full h-full max-w-[96rem] max-h-[67.5rem] px-16 mobile:px-24 tablet:px-64 desktop:px-120 py-24 mobile:py-32 tablet:py-48 desktop:py-64 overflow-x-hidden"
     >
-      Hello Svelte!
       <div
         class="relative flex h-32 -translate-x-4 tablet:h-40 desktop:h-48 tablet:absolute tablet:right-64 desktop:right-120 tablet:top-48 desktop:top-64 tablet:translate-x-0 tablet:-translate-y-4"
       >
         <ThemeTool client:only="svelte" />
         <ColorTool client:only="svelte" />
       </div>
-      <!-- <Content /> -->
+      <Content />
     </main>
   </body>
 </html>
