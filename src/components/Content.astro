@@ -4,7 +4,7 @@ import Text from "./Text.svelte";
 import Anchor from "./Anchor.svelte";
 import Span from "./Span.svelte";
 import ClockWidget from "./ClockWidget.svelte";
-// import { SpotifyWidget } from "./SpotifyWidget";
+import SpotifyWidget from "./SpotifyWidget.svelte";
 ---
 
 <div class="flex flex-col h-full w-full tablet:w-[60ch]">
@@ -99,7 +99,7 @@ import ClockWidget from "./ClockWidget.svelte";
         <ClockWidget client:only="svelte" />
       </div>
       <div class="flex items-center space-x-8">
-        <!-- <SpotifyWidget client:idle /> -->
+        <SpotifyWidget client:only="svelte" />
       </div>
     </div>
   </div>

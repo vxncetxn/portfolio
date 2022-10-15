@@ -12,6 +12,7 @@ specifiers:
   '@nanostores/react': ^0.4.0
   '@react-three/drei': ^9.32.7
   '@react-three/fiber': ^8.8.8
+  '@svelte-drama/swr': ^0.2.8
   '@types/three': ^0.144.0
   astro: 1.1.5
   astro-seo: ^0.6.0
@@ -23,7 +24,6 @@ specifiers:
   react: ^18.1.0
   rollup-plugin-visualizer: ^5.8.2
   svelte: ^3.52.0
-  swr: ^1.3.0
   tailwindcss: ^3.1.8
   tailwindcss-capsize: ^3.0.2
   three: ^0.145.0
@@ -32,12 +32,12 @@ dependencies:
   '@nanostores/react': 0.4.0_25cy6re7baininxy3qmd67ajwy
   '@react-three/drei': 9.32.7_bpgsj5dojtzdj4e45f55xkgmsa_add2jv3rchckrs724iors3gxay
   '@react-three/fiber': 8.8.8_react@18.2.0+three@0.145.0
+  '@svelte-drama/swr': 0.2.8_svelte@3.52.0
   astro-seo: 0.6.0
   comlink: 4.3.1
   cross-fetch: 3.1.5
   nanostores: 0.7.0
   svelte: 3.52.0
-  swr: 1.3.0_react@18.2.0
   three: 0.145.0
 
 devDependencies:
@@ -738,6 +738,15 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
+
+  /@svelte-drama/swr/0.2.8_svelte@3.52.0:
+    resolution: {integrity: sha512-mrDzCFkA628H1cWaeqnQKK/381xW+QJBGinkHrsvJzcg2iVR/4IHvEYOLyU48vLqFnyFg6XhG2baCNJE4IloVg==}
+    peerDependencies:
+      '@svelte-drama/suspense': ^0.3.5
+      svelte: ^3.44.3
+    dependencies:
+      svelte: 3.52.0
+    dev: false
 
   /@sveltejs/vite-plugin-svelte/1.0.9_svelte@3.52.0:
     resolution: {integrity: sha512-+SDrAnT7TDi8sdj4OfD2SC4s9DNrpNVBrue8fT2PmKks9Ddu0JIfSeX91wXZb/1xHz4EkGb+rli8GTRI0yGOjg==}
@@ -4120,14 +4129,6 @@ packages:
       pascal-case: 3.1.2
       svelte: 3.52.0
     dev: true
-
-  /swr/1.3.0_react@18.2.0:
-    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
-    peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /synckit/0.7.3:
     resolution: {integrity: sha512-jNroMv7Juy+mJ/CHW5H6TzsLWpa1qck6sCHbkv8YTur+irSq2PjbvmGnm2gy14BUQ6jF33vyR4DPssHqmqsDQw==}
