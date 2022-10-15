@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import * as THREE from "three";
 import React, { useState } from "react";
 import { extend, useFrame, useThree } from "@react-three/fiber";
