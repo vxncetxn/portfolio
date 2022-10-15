@@ -1,7 +1,6 @@
 <script lang="js">
   import { onMount } from "svelte";
   import { createRoot, events, invalidate } from "@react-three/fiber";
-  //   import React from "react";
   import { Scene } from "./Scene";
   import { theme } from "../stores/theme";
   import { color } from "../stores/color";

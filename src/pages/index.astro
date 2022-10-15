@@ -1,11 +1,10 @@
 ---
 import "../base.css";
-// import { CanvasControlFlow } from "../components/CanvasControlFlow";
+import CanvasControlFlow from "../components/CanvasControlFlow.svelte";
 // import { ThemeTool } from "../components/ThemeTool";
 // import { ColorTool } from "../components/ColorTool";
 // import Content from "../components/Content.astro";
 // import { SEO } from "astro-seo";
-import TestCanvas from "../components/TestCanvas.svelte";
 ---
 
 <html lang="en">
@@ -15,7 +14,7 @@ import TestCanvas from "../components/TestCanvas.svelte";
     <meta name="generator" content={Astro.generator} />
     <script
       type="module"
-      src={(await import("../lib/offscreen-worker.tsx?url")).default}
+      src={(await import("../lib/offscreen-worker.ts?url")).default}
     ></script>
     <script>
       import { theme } from "../stores/theme";
@@ -118,8 +117,7 @@ import TestCanvas from "../components/TestCanvas.svelte";
   <body
     class="relative flex items-center justify-center w-screen h-[calc(var(--1svh,1vh)*100)] supports-svh:h-[100svh] min-h-[664px] transition-colors bg-neutral-01 overflow-x-hidden"
   >
-    <TestCanvas client:only="svelte" />
-    <!-- <CanvasControlFlow client:only="react" /> -->
+    <CanvasControlFlow client:only="svelte" />
     <main
       class="relative flex flex-col space-y-32 tablet:space-y-0 items-start justify-between w-full h-full max-w-[96rem] max-h-[67.5rem] px-16 mobile:px-24 tablet:px-64 desktop:px-120 py-24 mobile:py-32 tablet:py-48 desktop:py-64 overflow-x-hidden"
     >

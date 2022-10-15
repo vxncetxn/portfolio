@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   '@react-three/drei@9.32.7':
-    hash: 6o23mosi44bne3ng4i7w7vwy5a
+    hash: bpgsj5dojtzdj4e45f55xkgmsa
     path: patches/@react-three__drei@9.32.7.patch
 
 specifiers:
@@ -32,7 +32,7 @@ specifiers:
 dependencies:
   '@legendapp/state': 0.19.0_react@18.2.0
   '@nanostores/react': 0.4.0_25cy6re7baininxy3qmd67ajwy
-  '@react-three/drei': 9.32.7_6o23mosi44bne3ng4i7w7vwy5a_add2jv3rchckrs724iors3gxay
+  '@react-three/drei': 9.32.7_bpgsj5dojtzdj4e45f55xkgmsa_add2jv3rchckrs724iors3gxay
   '@react-three/fiber': 8.8.8_react@18.2.0+three@0.145.0
   astro-seo: 0.6.0
   comlink: 4.3.1
@@ -681,7 +681,7 @@ packages:
     resolution: {integrity: sha512-7I/qY8H7Enwasxr4jU6WmtNK+RZ4Z/XvSlDvjXFVe7ii1x0MoSlkw6pD7xuac8qrHQRm9BTcbZNyeeKApYsvCg==}
     dev: false
 
-  /@react-three/drei/9.32.7_6o23mosi44bne3ng4i7w7vwy5a_add2jv3rchckrs724iors3gxay:
+  /@react-three/drei/9.32.7_bpgsj5dojtzdj4e45f55xkgmsa_add2jv3rchckrs724iors3gxay:
     resolution: {integrity: sha512-F9XkOod8kVg/OQNaal0uyO1EHiWAnxbroHbXACOZlLrTKtzTkzGBV3gnyPs0Y4erBURIJ/4JCakWy4qqs9C7jg==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
