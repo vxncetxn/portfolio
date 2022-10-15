@@ -15,7 +15,6 @@
   };
 
   const handleResize = debounce(() => {
-    console.log("entered resize");
     if (anchor) {
       const domRect = anchor.getBoundingClientRect();
       const bounds = {

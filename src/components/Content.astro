@@ -3,7 +3,7 @@ import Header from "./Header.astro";
 import Text from "./Text.svelte";
 import Anchor from "./Anchor.svelte";
 import Span from "./Span.svelte";
-// import { ClockWidget } from "./ClockWidget";
+import ClockWidget from "./ClockWidget.svelte";
 // import { SpotifyWidget } from "./SpotifyWidget";
 ---
 
@@ -96,7 +96,7 @@ import Span from "./Span.svelte";
           <Text size="small">Based in Singapore</Text>
         </div>
         <Span font="sans" size="small">•</Span>
-        <!-- <ClockWidget client:only="react" /> -->
+        <ClockWidget client:only="svelte" />
       </div>
       <div class="flex items-center space-x-8">
         <!-- <SpotifyWidget client:idle /> -->
