@@ -21,8 +21,12 @@ interface SceneProps {
 }
 
 function Intro() {
+  const { invalidate } = useThree();
   const [vec] = useState(() => new THREE.Vector3());
   return useFrame((state) => {
+    if (state.camera.position.manhattanDistanceTo(vec) > 0.3) {
+      invalidate();
+    }
     state.camera.position.lerp(
       vec.set(state.pointer.x * 2, -1 + state.pointer.y * 2, 14),
       0.05
@@ -67,6 +71,7 @@ export function Scene({ theme, color }: SceneProps) {
         castShadow={selectedTheme === "light"}
         size={linInterpolate(320, 1536, 1.9, 4.2, size.width)}
         height={1}
+        // position={[0, 0, 0]}
         position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5.5, 0]}
         rotation={[0, 0.1, 0]}
       >

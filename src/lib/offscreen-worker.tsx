@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import * as Comlink from "comlink";
-import { createRoot, events } from "@react-three/fiber";
+import { createRoot, events, invalidate } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { initTransferHandler } from "../lib/event.transferhandler";
 import { observable } from "@legendapp/state";
@@ -35,10 +35,12 @@ const api = {
             width: dimensions.width / dpr,
             height: dimensions.height / dpr,
           },
+      frameloop: "demand",
     });
     root.render(<Scene theme={theme} color={color} />);
   },
   onPointerMove(ev) {
+    invalidate();
     let customEv = new CustomEvent("pointermove");
     for (const [key, value] of Object.entries(ev)) {
       customEv[key] = value;
@@ -60,6 +62,7 @@ const api = {
         left: 0,
         updateStyle: false,
       },
+      frameloop: "demand",
     });
     root.render(<Scene theme={theme} color={color} />);
   },

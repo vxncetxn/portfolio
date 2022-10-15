@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useRef, useEffect } from "react";
-import { createRoot, events } from "@react-three/fiber";
+import { createRoot, events, invalidate } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { theme } from "../state/theme";
 import { color } from "../state/color";
@@ -32,11 +32,13 @@ export default function Canvas() {
           left: 0,
           updateStyle: false,
         },
+        frameloop: "demand",
       });
       root.render(<Scene theme={theme} color={color} />);
     });
     window.dispatchEvent(new Event("resize"));
     window.addEventListener("mousemove", (ev) => {
+      invalidate();
       let customEv = new CustomEvent("pointermove");
       customEv.offsetX = ev.clientX;
       customEv.offsetY = ev.clientY;
