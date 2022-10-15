@@ -5,6 +5,7 @@ import "../base.css";
 // import { ColorTool } from "../components/ColorTool";
 // import Content from "../components/Content.astro";
 // import { SEO } from "astro-seo";
+import TestCanvas from "../components/TestCanvas.svelte";
 ---
 
 <html lang="en">
@@ -17,8 +18,7 @@ import "../base.css";
       src={(await import("../lib/offscreen-worker.tsx?url")).default}
     ></script>
     <script>
-      import { theme } from "../state/theme";
-      import { enableLegendStateReact } from "@legendapp/state/react";
+      import { theme } from "../stores/theme";
       import { debounce } from "../lib/debounce";
 
       var setVh = function () {
@@ -51,7 +51,6 @@ import "../base.css";
 
       (function () {
         // themes
-        enableLegendStateReact();
         const storedTheme = window.localStorage.getItem("theme");
         const darkModePref = window.matchMedia("(prefers-color-scheme: dark)");
         if (storedTheme) {
@@ -119,6 +118,7 @@ import "../base.css";
   <body
     class="relative flex items-center justify-center w-screen h-[calc(var(--1svh,1vh)*100)] supports-svh:h-[100svh] min-h-[664px] transition-colors bg-neutral-01 overflow-x-hidden"
   >
+    <TestCanvas client:only="svelte" />
     <!-- <CanvasControlFlow client:only="react" /> -->
     <main
       class="relative flex flex-col space-y-32 tablet:space-y-0 items-start justify-between w-full h-full max-w-[96rem] max-h-[67.5rem] px-16 mobile:px-24 tablet:px-64 desktop:px-120 py-24 mobile:py-32 tablet:py-48 desktop:py-64 overflow-x-hidden"
