@@ -1,9 +1,9 @@
 // @ts-nocheck
-import { observable } from "@legendapp/state";
+import { atom } from "nanostores";
 
-export const theme = observable("light");
+export const theme = atom("light");
 
-theme.onChange((value) => {
+theme.listen((value) => {
   document.documentElement.setAttribute("theme", value);
   let customEv = new CustomEvent("changetheme");
   customEv["theme"] = value;

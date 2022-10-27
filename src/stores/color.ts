@@ -1,9 +1,9 @@
 // @ts-nocheck
-import { observable } from "@legendapp/state";
+import { atom } from "nanostores";
 
-export const color = observable("#34fdaa");
+export const color = atom("#34fdaa");
 
-color.onChange((value) => {
+color.listen((value) => {
   document.documentElement.style.setProperty("--color-theme-selected", value);
   let customEv = new CustomEvent("changecolor");
   customEv["color"] = value;

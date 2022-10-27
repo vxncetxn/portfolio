@@ -1,15 +1,14 @@
-// @ts-nocheck
-import { useRef, useEffect } from "react";
-import { createRoot, events, invalidate } from "@react-three/fiber";
-import { Scene } from "../components/Scene";
-import { theme } from "../state/theme";
-import { color } from "../state/color";
+<script lang="js">
+  import { onMount } from "svelte";
+  import { createRoot, events, invalidate } from "@react-three/fiber";
+  import { Scene } from "./Scene";
+  import { theme } from "../stores/theme";
+  import { color } from "../stores/color";
 
-export default function Canvas() {
-  const canvasRef = useRef();
+  let canvas;
 
-  useEffect(() => {
-    const root = createRoot(canvasRef.current);
+  onMount(() => {
+    const root = createRoot(canvas);
     const eventsPresent = window.matchMedia("(hover: hover)").matches;
 
     window.addEventListener("resize", () => {
@@ -34,7 +33,7 @@ export default function Canvas() {
         },
         frameloop: "demand",
       });
-      root.render(<Scene theme={theme} color={color} />);
+      root.render(Scene({ theme, color }));
     });
     window.dispatchEvent(new Event("resize"));
     window.addEventListener("mousemove", (ev) => {
@@ -42,9 +41,9 @@ export default function Canvas() {
       let customEv = new CustomEvent("pointermove");
       customEv.offsetX = ev.clientX;
       customEv.offsetY = ev.clientY;
-      canvasRef.current.dispatchEvent(customEv);
+      canvas.dispatchEvent(customEv);
     });
-  }, []);
+  });
+</script>
 
-  return <canvas ref={canvasRef} className="absolute left-0 top-0" />;
-}
+<canvas bind:this={canvas} class="absolute left-0 top-0" />

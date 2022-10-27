@@ -1,10 +1,9 @@
 // @ts-nocheck
-import React from "react";
 import * as Comlink from "comlink";
 import { createRoot, events, invalidate } from "@react-three/fiber";
 import { Scene } from "../components/Scene";
 import { initTransferHandler } from "../lib/event.transferhandler";
-import { observable } from "@legendapp/state";
+import { atom } from "nanostores";
 
 initTransferHandler();
 
@@ -12,8 +11,8 @@ let root;
 let savedCanvas;
 let eventsPresent;
 let dpr;
-const theme = observable("light");
-const color = observable("#34fdaa");
+const theme = atom("light");
+const color = atom("#34fdaa");
 
 const api = {
   init(props) {
@@ -37,7 +36,7 @@ const api = {
           },
       frameloop: "demand",
     });
-    root.render(<Scene theme={theme} color={color} />);
+    root.render(Scene({ theme, color }));
   },
   onPointerMove(ev) {
     invalidate();
@@ -64,7 +63,7 @@ const api = {
       },
       frameloop: "demand",
     });
-    root.render(<Scene theme={theme} color={color} />);
+    root.render(Scene({ theme, color }));
   },
   onChangeTheme(ev) {
     theme.set(ev.theme);

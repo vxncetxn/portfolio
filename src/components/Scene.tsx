@@ -1,6 +1,5 @@
-import ReactDOM from "react-dom";
 import * as THREE from "three";
-import React, { useState } from "react";
+import React from "react";
 import { extend, useFrame, useThree } from "@react-three/fiber";
 import {
   softShadows,
@@ -8,21 +7,15 @@ import {
   MeshReflectorMaterial,
   // BakeShadows,
 } from "@react-three/drei";
-import { useSelector } from "@legendapp/state/react";
-import type { ObservablePrimitive } from "@legendapp/state";
 import { linInterpolate } from "../lib/linear-interpolate";
+import { useStore } from "@nanostores/react";
 
 extend(THREE);
 softShadows();
 
-interface SceneProps {
-  theme: ObservablePrimitive<string>;
-  color: ObservablePrimitive<string>;
-}
-
 function Intro() {
   const { invalidate } = useThree();
-  const [vec] = useState(() => new THREE.Vector3());
+  const [vec] = React.useState(() => new THREE.Vector3());
   return useFrame((state) => {
     if (state.camera.position.manhattanDistanceTo(vec) > 0.3) {
       invalidate();
@@ -35,21 +28,21 @@ function Intro() {
   });
 }
 
-export function Scene({ theme, color }: SceneProps) {
-  const selectedTheme = useSelector(() => theme.get());
-  const selectedColor = useSelector(() => color.get());
+function Layer({ theme, color }) {
   const { size } = useThree();
+  const $theme = useStore(theme);
+  const $color = useStore(color);
 
   return (
     <>
-      {selectedTheme === "light" ? (
+      {$theme === "light" ? (
         <fog attach="fog" args={["white", 0, 40]} />
       ) : (
         <fog attach="fog" args={["#1c1c1c", 0, 30]} />
       )}
       <ambientLight intensity={0.4} />
       <directionalLight
-        castShadow={selectedTheme === "light"}
+        castShadow={$theme === "light"}
         position={[12, 8, 14]}
         intensity={2.2}
         shadow-mapSize-width={512}
@@ -60,18 +53,13 @@ export function Scene({ theme, color }: SceneProps) {
         shadow-camera-top={20}
         shadow-camera-bottom={-20}
       />
-      <pointLight
-        position={[-10, 0, -20]}
-        color={selectedColor}
-        intensity={2.0}
-      />
+      <pointLight position={[-10, 0, -20]} color={$color} intensity={2.0} />
       <Text3D
         font="/fonts/PPMonumentExtended_Bold_reduced.json"
-        receiveShadow={selectedTheme === "light"}
-        castShadow={selectedTheme === "light"}
+        receiveShadow={$theme === "light"}
+        castShadow={$theme === "light"}
         size={linInterpolate(320, 1536, 1.9, 4.2, size.width)}
         height={1}
-        // position={[0, 0, 0]}
         position={[linInterpolate(320, 1536, -3.5, -0.75, size.width), -5.5, 0]}
         rotation={[0, 0.1, 0]}
       >
@@ -81,15 +69,11 @@ export function Scene({ theme, color }: SceneProps) {
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -5.5, 0]}
-        receiveShadow={selectedTheme === "light"}
+        receiveShadow={$theme === "light"}
       >
         <planeBufferGeometry attach="geometry" args={[50, 50]} />
-        {selectedTheme === "light" ? (
-          <shadowMaterial
-            attach="material"
-            color={selectedColor}
-            opacity={0.4}
-          />
+        {$theme === "light" ? (
+          <shadowMaterial attach="material" color={$color} opacity={0.4} />
         ) : (
           <MeshReflectorMaterial
             blur={[300, 100]}
@@ -108,6 +92,14 @@ export function Scene({ theme, color }: SceneProps) {
       </mesh>
       {/* <BakeShadows /> */}
       <Intro />
+    </>
+  );
+}
+
+export function Scene({ theme, color }) {
+  return (
+    <>
+      <Layer theme={theme} color={color} />
     </>
   );
 }

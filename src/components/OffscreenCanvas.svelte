@@ -1,32 +1,21 @@
-// @ts-nocheck
-import { useRef, useEffect } from "react";
-import { theme } from "../state/theme";
-import OffscreenWorker from "../lib/offscreen-worker?worker";
-import * as Comlink from "comlink";
-import { initTransferHandler } from "../lib/event.transferhandler";
+<script lang="js">
+  import { onMount } from "svelte";
+  import * as Comlink from "comlink";
+  import { initTransferHandler } from "../lib/event.transferhandler";
+  const worker = new Worker(
+    new URL("../lib/offscreen-worker", import.meta.url),
+    {
+      type: "module",
+    }
+  );
+  import { theme } from "../stores/theme";
 
-// function throttle(callback, offset) {
-//   let baseTime = 0;
-//   return (...args) => {
-//     const currentTime = Date.now();
-//     if (baseTime + offset <= currentTime) {
-//       baseTime = currentTime;
-//       callback(...args);
-//     }
-//   };
-// }
+  initTransferHandler();
+  let canvas;
 
-initTransferHandler();
-
-export default function OffscreenCanvas() {
-  const canvasRef = useRef();
-
-  useEffect(() => {
+  onMount(() => {
     async function createRootFromCanvas() {
-      const canvas = canvasRef.current;
-
       const offscreen = canvas.transferControlToOffscreen();
-      const worker = new OffscreenWorker();
       const api = Comlink.wrap(worker);
 
       window.addEventListener(
@@ -62,7 +51,7 @@ export default function OffscreenCanvas() {
     }
 
     createRootFromCanvas();
-  }, []);
+  });
+</script>
 
-  return <canvas ref={canvasRef} className="absolute left-0 top-0" />;
-}
+<canvas bind:this={canvas} class="absolute left-0 top-0" />

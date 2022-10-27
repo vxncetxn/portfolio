@@ -1,10 +1,10 @@
 ---
 import Header from "./Header.astro";
-import { Text } from "./Text";
-import { Anchor } from "./Anchor";
-import { Span } from "./Span";
-import { ClockWidget } from "./ClockWidget";
-import { SpotifyWidget } from "./SpotifyWidget";
+import Text from "./Text.svelte";
+import Anchor from "./Anchor.svelte";
+import Span from "./Span.svelte";
+import ClockWidget from "./ClockWidget.svelte";
+import SpotifyWidget from "./SpotifyWidget.svelte";
 ---
 
 <div class="flex flex-col h-full w-full tablet:w-[60ch]">
@@ -20,23 +20,21 @@ import { SpotifyWidget } from "./SpotifyWidget";
       about building beautiful experiences on the web. I sometimes also do some freelance
       work on the side, such as for <Anchor
         href=""
-        linkType="demo"
-        img="test-image-1"
-        imgAlt="test image 1"
-        client:only="react">WTH 2021</Anchor
+        img="preview-wth"
+        imgAlt="Screenshot of WTH 2021 website"
+        client:only="svelte">WTH 2021</Anchor
       >
       and <Anchor
         href=""
-        linkType="demo"
-        img="test-image-2"
-        imgAlt="test image 2"
-        client:only="react">SUTD MC</Anchor
+        img="preview-sutdmc"
+        imgAlt="Screenshot of SUTDMC website"
+        client:only="svelte">SUTD MC</Anchor
       >. Outside of work, I am a hobbyist
       <Anchor
         href=""
-        img="test-image-3"
-        imgAlt="test image 3"
-        client:only="react">PHOTOGRAPHER</Anchor
+        img="preview-photos"
+        imgAlt="Screenshot of vance.photos website"
+        client:only="svelte">PHOTOGRAPHER</Anchor
       > and an absolute fan of good food.
     </Text>
     <div class="flex flex-col space-y-20">
@@ -98,10 +96,10 @@ import { SpotifyWidget } from "./SpotifyWidget";
           <Text size="small">Based in Singapore</Text>
         </div>
         <Span font="sans" size="small">•</Span>
-        <ClockWidget client:only="react" />
+        <ClockWidget client:only="svelte" />
       </div>
       <div class="flex items-center space-x-8">
-        <SpotifyWidget client:idle />
+        <SpotifyWidget client:only="svelte" />
       </div>
     </div>
   </div>
