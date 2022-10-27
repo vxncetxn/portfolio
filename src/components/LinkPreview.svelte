@@ -35,7 +35,7 @@
       } else {
         widthPop = 240;
       }
-      const heightPop = widthPop / (16 / 9);
+      const heightPop = widthPop / (36 / 17);
       const collisionPadding = 8;
 
       const leftCollision =
@@ -73,7 +73,7 @@
 </script>
 
 <div
-  class={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-240 mobile:w-280 tablet:w-320 desktop:w-360 h-[calc(240px/16*9)] mobile:h-[calc(280px/16*9)] tablet:h-[calc(320px/16*9)] desktop:h-[calc(360px/16*9)] rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
+  class={`hover-none:hidden absolute left-1/2 z-10 bg-neutral-01 w-240 mobile:w-280 tablet:w-320 desktop:w-360 h-[calc(240px/36*17)] mobile:h-[calc(280px/36*17)] tablet:h-[calc(320px/36*17)] desktop:h-[calc(360px/36*17)] rounded-8 shadow-2xl p-8 pointer-events-none transition border border-neutral-04 ${
     collisionParams.top ? "top-full" : "bottom-full"
   } ${open ? "opacity-1" : "opacity-0"}`}
   style={`transform: translate(calc(-50% + ${
