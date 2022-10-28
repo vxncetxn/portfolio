@@ -4,7 +4,7 @@ import CanvasControlFlow from "../components/CanvasControlFlow.svelte";
 import ThemeTool from "../components/ThemeTool.svelte";
 import ColorTool from "../components/ColorTool.svelte";
 import Content from "../components/Content.astro";
-// import { SEO } from "astro-seo";
+import { SEO } from "astro-seo";
 ---
 
 <html lang="en">
@@ -82,7 +82,7 @@ import Content from "../components/Content.astro";
         );
       })();
     </script>
-    <!-- <SEO
+    <SEO
       title="Vance Tan // VXN"
       description="Vance Tan is a software engineer and designer based in Singapore who is passionate about building beautiful experiences on the web."
       openGraph={{
@@ -92,7 +92,7 @@ import Content from "../components/Content.astro";
           image: "/meta/meta-image.jpg",
         },
         image: {
-          alt: "Cover image for vancetan.me",
+          alt: "Cover image for vancetan.dev",
           type: "image/jpeg",
           width: 1200,
           height: 630,
@@ -111,7 +111,7 @@ import Content from "../components/Content.astro";
           },
         ],
       }}
-    /> -->
+    />
     <link rel="icon" type="image/svg+xml" href="/meta/favicon.svg" />
   </head>
   <body
